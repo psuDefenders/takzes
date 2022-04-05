@@ -2,7 +2,7 @@ extends Control
 
 export var score = 0
 export var money = 1
-export var getmoney = 1
+export var getmoney = 0
 var combo = 0
 
 var shop_delay = 0

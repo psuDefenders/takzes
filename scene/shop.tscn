@@ -34,3 +34,6 @@ margin_bottom = 86.0
 custom_fonts/font = SubResource( 1 )
 text = "+1 MPC [20]"
 align = 0
+
+[connection signal="pressed" from="ShopList/MPS1" to="." method="_on_MPS1_pressed"]
+[connection signal="pressed" from="ShopList/MPC1" to="." method="_on_MPC1_pressed"]

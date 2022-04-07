@@ -14,26 +14,26 @@ margin_bottom = 40.0
 script = ExtResource( 2 )
 
 [node name="ShopList" type="VBoxContainer" parent="."]
-margin_left = 790.0
-margin_top = 81.0
-margin_right = 1828.0
-margin_bottom = 1071.0
+margin_left = 0.00012207
+margin_top = 78.0
+margin_right = 1038.0
+margin_bottom = 1068.0
 rect_scale = Vector2( 1.00478, 1.04 )
 
-[node name="MPS1" type="Button" parent="ShopList"]
+[node name="MPC1" type="Button" parent="ShopList"]
 margin_right = 1038.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 1 )
-text = "+1 MPS [20]"
-align = 0
-
-[node name="MPC1" type="Button" parent="ShopList"]
-margin_top = 45.0
-margin_right = 1038.0
-margin_bottom = 86.0
 custom_fonts/font = SubResource( 1 )
 text = "+1 MPC [20]"
 align = 0
 
-[connection signal="pressed" from="ShopList/MPS1" to="." method="_on_MPS1_pressed"]
+[node name="MPS1" type="Button" parent="ShopList"]
+margin_top = 45.0
+margin_right = 1038.0
+margin_bottom = 86.0
+custom_fonts/font = SubResource( 1 )
+text = "+1 MPS [20]"
+align = 0
+
 [connection signal="pressed" from="ShopList/MPC1" to="." method="_on_MPC1_pressed"]
+[connection signal="pressed" from="ShopList/MPS1" to="." method="_on_MPS1_pressed"]

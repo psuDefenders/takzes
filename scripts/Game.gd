@@ -16,6 +16,31 @@ var mail_count = 0
 
 var day = 1
 
+var stick = 0
+var plant = 0
+var cdPlayer = 0
+var system64 = 0
+var fastInternet = 0
+var gilberts = 0
+var cellPhone = 0
+var dumBells = 0
+var mechKeyboard = 0
+var fastFood = 0
+var edison = 0
+var car = 0
+var kimberly = 0
+var employee = 0
+var robot = 0
+var boombox = 0
+var airFlower = 0
+var trapMusic = 0
+var classicalMusic = 0
+var airFryer = 0
+var moneyLaunderer = 0
+var moneyPrinter = 0
+
+
+
 func _on_Timer_timeout():
 	score += getmoney
 

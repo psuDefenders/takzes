@@ -10,7 +10,8 @@ config_version=4
 
 [application]
 
-config/name="Clicker Game"
+config/name="takzes"
+config/description="its taxes"
 run/main_scene="res://scene/MainMenu.tscn"
 config/icon="res://icon.png"
 

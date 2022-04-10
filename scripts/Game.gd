@@ -14,6 +14,8 @@ var kind_of_mail
 var mail_spam
 var mail_count = 0
 
+var day_count = 1
+
 func _on_Timer_timeout():
 	score += getmoney
 
@@ -33,6 +35,10 @@ func _on_MinTimer_timeout():
 		elif kind_of_mail == 3:
 			mail_spam = randi() % 50
 			mail_count += 1
+
+func _on_DayTimer_timeout():
+	day_count += 1
+	$Date.text = str("Day ", day_count)
 
 func _process(_delta):
 	$Score.text = str(score)
@@ -73,3 +79,4 @@ func _on_Mail_pressed():
 	elif mail == true:
 		mail = false
 		$TheMail.visible = false
+

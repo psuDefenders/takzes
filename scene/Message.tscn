@@ -3,29 +3,28 @@
 [node name="Message" type="Node2D"]
 
 [node name="message" type="Label" parent="."]
-margin_left = 3.0
-margin_top = 38.0
-margin_right = 160.0
-margin_bottom = 154.0
+margin_left = 1.0
+margin_top = 105.0
+margin_right = 158.0
+margin_bottom = 221.0
 text = "BODY"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 1.0
+margin_top = 34.0
+margin_right = 41.0
+margin_bottom = 48.0
 text = "TITLE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = -1.0
-margin_top = 139.0
-margin_right = 219.0
-margin_bottom = 217.0
+margin_left = 46.0
+margin_top = 262.0
+margin_right = 173.0
+margin_bottom = 307.0
 text = "AGREE"
-__meta__ = {
-"_edit_use_anchors_": false
-}

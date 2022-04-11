@@ -13,6 +13,14 @@ func _process(_delta):
 	score = get_tree().get_root().get_node("Control").score
 	money = get_tree().get_root().get_node("Control").money
 	getmoney = get_tree().get_root().get_node("Control").getmoney
+	if score >= MPC1Needed:
+		$ShopList/MPC1.set("custom_colors/font_color",Color(0,255,0))
+	else:
+		$ShopList/MPC1.set("custom_colors/font_color",Color(255,0,0))
+	if score >= MPS1Needed:
+		$ShopList/MPS1.set("custom_colors/font_color",Color(0,255,0))
+	else:
+		$ShopList/MPS1.set("custom_colors/font_color",Color(255,0,0))
 
 func _on_MPC1_pressed():
 	if score >= MPC1Needed:

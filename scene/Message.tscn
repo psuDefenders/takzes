@@ -46,8 +46,5 @@ margin_top = 832.0
 margin_right = 700.0
 margin_bottom = 965.0
 text = "AGREE"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

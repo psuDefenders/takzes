@@ -9,6 +9,7 @@ var canClick = true
 
 
 var shop_delay = 0
+var shopAccessible = false
 var shop = false
 
 var mail = false
@@ -71,6 +72,8 @@ func _on_DayTimer_timeout():
 
 func _process(_delta):
 	$Score.text = str(score)
+	
+	$Shop.visible = shopAccessible
 	
 	if score >= 100 and Global.lore == 0:
 		$Message.message("Congrats", "Congratulation on making a hundred! You worked hard on this and it would be a shame to spend it badly. It's time to budget!", 1)

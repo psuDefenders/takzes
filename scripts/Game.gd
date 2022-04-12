@@ -39,6 +39,9 @@ var airFryer = 0
 var moneyLaunderer = 0
 var moneyPrinter = 0
 
+func _ready():
+	$Message.message("Welcome", "Ciao, in this hypotetical reality your job is to push a boutton! Start by making 100$", 0)
+
 func _on_Timer_timeout():
 	score += getmoney
 

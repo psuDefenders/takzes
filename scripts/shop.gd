@@ -8,6 +8,7 @@ onready var MPS = get_tree().get_root().get_node("Control/MPS")
 onready var MPC = get_tree().get_root().get_node("Control/MPC")
 var MPC1Needed = 20
 var MPS1Needed = 20
+var MoneyPrinterNeeded = 50
 
 func _process(_delta):
 	score = get_tree().get_root().get_node("Control").score
@@ -21,6 +22,10 @@ func _process(_delta):
 		$ShopList/MPS1.set("custom_colors/font_color",Color(0,255,0))
 	else:
 		$ShopList/MPS1.set("custom_colors/font_color",Color(255,0,0))
+	if score >= MoneyPrinterNeeded:
+		$ShopList/MoneyPrinter/Name.set("custom_colors/font_color",Color(0,255,0))
+	else:
+		$ShopList/MoneyPrinter/Name.set("custom_colors/font_color",Color(255,0,0))
 
 func _on_MPC1_pressed():
 	if score >= MPC1Needed:
@@ -37,4 +42,11 @@ func _on_MPS1_pressed():
 		get_tree().get_root().get_node("Control").getmoney = get_tree().get_root().get_node("Control").getmoney + 1
 		$ShopList/MPS1.text = str("+1 MPS [", MPS1Needed, "]")
 		MPS.text = str("MPS: ", getmoney +1)
-		
+
+func _on_Buy_pressed():
+	if score >= MoneyPrinterNeeded:
+		get_tree().get_root().get_node("Control").score -= MoneyPrinterNeeded
+		MoneyPrinterNeeded = round(MoneyPrinterNeeded * 1.4)
+		get_tree().get_root().get_node("Control").getmoney = get_tree().get_root().get_node("Control").getmoney + 50
+		$ShopList/MoneyPrinter/Buy.text = str(MoneyPrinterNeeded)
+		MPS.text = str("MPS: ", getmoney +50)

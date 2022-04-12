@@ -5,6 +5,9 @@ export var money = 1
 export var getmoney = 0
 var combo = 0
 
+var canClick = true
+
+
 var shop_delay = 0
 var shop = false
 
@@ -69,18 +72,24 @@ func _on_DayTimer_timeout():
 func _process(_delta):
 	$Score.text = str(score)
 	
+	if score >= 100 and Global.lore == 0:
+		$Message.message("Congrats", "Congratulation on making a hundred! You worked hard on this and it would be a shame to spend it badly. It's time to budget!", 1)
+		canClick = false
+		Global.lore = 1
+	
 	if shop_delay > 0:
 		shop_delay -= 1
 
 func _on_Click_pressed():
 	$ClickTimer.start()
-	if combo < 100:
-		combo += 1
-	if combo > 25:
-		score += round(money * (combo / 25))
-		$ComboEffect.emitting = true
-	if combo <= 25:
-		score += money
+	if canClick:
+		if combo < 100:
+			combo += 1
+		if combo > 25:
+			score += round(money * (combo / 25))
+			$ComboEffect.emitting = true
+		if combo <= 25:
+			score += money
 
 func _on_ClickTimer_timeout():
 	combo = 0

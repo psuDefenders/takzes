@@ -73,7 +73,7 @@ margin_bottom = 12.0
 custom_fonts/font = SubResource( 3 )
 text = "wait, that's illegal"
 
-[node name="Label" type="Label" parent="ShopList/MoneyPrinter"]
+[node name="Price" type="Label" parent="ShopList/MoneyPrinter"]
 margin_left = 22.289
 margin_top = -10.379
 margin_right = 62.289

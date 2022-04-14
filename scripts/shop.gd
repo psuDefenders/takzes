@@ -48,5 +48,5 @@ func _on_Buy_pressed():
 		get_tree().get_root().get_node("Control").score -= MoneyPrinterNeeded
 		MoneyPrinterNeeded = round(MoneyPrinterNeeded * 1.4)
 		get_tree().get_root().get_node("Control").getmoney = get_tree().get_root().get_node("Control").getmoney + 50
-		$ShopList/MoneyPrinter/Buy.text = str(MoneyPrinterNeeded)
+		$ShopList/MoneyPrinter/Price.text = str(MoneyPrinterNeeded , "M")
 		MPS.text = str("MPS: ", getmoney +50)

@@ -3,6 +3,8 @@ extends Control
 export var score = 0
 export var money = 1
 export var getmoney = 0
+export var checking = 0
+export var saving = 0
 var combo = 0
 
 var canClick = true
@@ -54,15 +56,16 @@ func _on_MinTimer_timeout():
 	if gotten_mail == 19 && mail_count < 11:
 		kind_of_mail = randi() % 3 #0 = stock info, #1 = ads on shop(sales), #2 = news, #3 = spam
 		if kind_of_mail == 0:
-			print()
+			print("stock info")
 			mail_count += 1
 		elif kind_of_mail == 1:
-			print()
+			print("ads")
 			mail_count += 1
 		elif kind_of_mail == 2:
-			print()
+			print("news")
 			mail_count += 1
 		elif kind_of_mail == 3:
+			print("spam")
 			mail_spam = randi() % 50
 			mail_count += 1
 

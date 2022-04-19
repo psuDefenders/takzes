@@ -75,6 +75,8 @@ func _on_DayTimer_timeout():
 
 func _process(_delta):
 	$Score.text = str(score)
+	$Checking.text = str(checking)
+	$Savings.text = str(saving)
 	
 	$Shop.visible = shopAccessible
 	

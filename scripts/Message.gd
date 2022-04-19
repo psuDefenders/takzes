@@ -16,5 +16,5 @@ func message(title, body, function):
 func _on_Button_pressed():
 	visible = false
 	if btnFunction == 1:
-		pass
+		get_parent().get_node("budget").budget()
 		#bring budget

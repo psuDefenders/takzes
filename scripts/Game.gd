@@ -3,6 +3,8 @@ extends Control
 export var score = 0
 export var money = 1
 export var getmoney = 0
+export var checking = 0
+export var saving = 0
 var combo = 0
 
 var canClick = true
@@ -72,6 +74,8 @@ func _on_DayTimer_timeout():
 
 func _process(_delta):
 	$Score.text = str(score)
+	$Checking.text = str(checking)
+	$Savings.text = str(saving)
 	
 	$Shop.visible = shopAccessible
 	

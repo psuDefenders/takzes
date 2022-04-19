@@ -51,6 +51,12 @@ func _ready():
 func _on_Timer_timeout():
 	score += getmoney
 
+func startTimer():
+	$DayTimer.stop
+	
+func stopTimer():
+	$DayTimer.start
+
 func _on_MinTimer_timeout():
 	gotten_mail = randi() % 19 #1/20 chance every minute
 	if gotten_mail == 19 && mail_count < 11:
@@ -72,6 +78,7 @@ func _on_MinTimer_timeout():
 func _on_DayTimer_timeout():
 	day_count += 1
 	$Date.text = str("Day ", day_count)
+	$budget.budget()
 
 func _process(_delta):
 	$Score.text = str(score)

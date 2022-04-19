@@ -15,6 +15,7 @@ func _ready():
 func budget():
 	$curLiveCost.text = "Current living expense: " + str(Global.livingExpense)
 	visible = true
+	get_parent().stopTimer()
 
 func expenses(value):
 	expensePercent = value
@@ -54,4 +55,6 @@ func transfer_money():
 	get_parent().saving = get_parent().score * (savingPercent*0.01)
 	Global.extraliving = (get_parent().score * (expensePercent*0.01)) - Global.livingExpense
 	print(Global.extraliving)
+	get_parent().canClick = true
 	get_parent().score = 0
+	get_parent().startTimer()

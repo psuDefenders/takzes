@@ -46,16 +46,16 @@ var moneyLaunderer = 0
 var moneyPrinter = 0
 
 func _ready():
-	$Message.message("Welcome", "Ciao, in this hypotetical reality your job is to push a boutton! Start by making 100$", 0)
+	$Message.message("Welcome", "Ciao, in this hypotetical reality. Your job is to push a boutton! Start by making 100$.", 0)
 
 func _on_Timer_timeout():
 	score += getmoney
 
 func startTimer():
-	$DayTimer.stop
+	$DayTimer.stop()
 	
 func stopTimer():
-	$DayTimer.start
+	$DayTimer.start()
 
 func _on_MinTimer_timeout():
 	gotten_mail = randi() % 19 #1/20 chance every minute
@@ -130,3 +130,7 @@ func _on_Mail_pressed():
 		mail = false
 		$TheMail.visible = false
 
+func _on_SkipDay_pressed():
+	day_count += 1
+	$Date.text = str("Day ", day_count)
+	$budget.budget()

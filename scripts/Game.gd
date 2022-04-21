@@ -49,7 +49,8 @@ func _ready():
 	$Message.message("Welcome", "Ciao, in this hypotetical reality. Your job is to push a boutton! Start by making 100$.", 0)
 
 func _on_Timer_timeout():
-	score += getmoney
+	if canClick == true:
+		score += getmoney
 
 func startTimer():
 	$DayTimer.stop()

@@ -11,6 +11,8 @@ onready var MPC = get_tree().get_root().get_node("Control/MPC")
 var MPC1Needed = 20
 var MPS1Needed = 20
 var MoneyPrinterNeeded = 50
+var StickNeeded = 10
+var PlantNeeded = 30
 
 func _process(_delta):
 	score = get_tree().get_root().get_node("Control").score
@@ -47,10 +49,36 @@ func _on_MPS1_pressed():
 		$ShopList/MPS1.text = str("+1 MPS [", MPS1Needed, "]")
 		MPS.text = str("MPS: ", getmoney +1)
 
-func _on_Buy_pressed():
+func _on_BuyMoneyPrinter_pressed():
 	if checking >= MoneyPrinterNeeded:
 		get_tree().get_root().get_node("Control").checking -= MoneyPrinterNeeded
 		MoneyPrinterNeeded = round(MoneyPrinterNeeded * 1.4)
 		get_tree().get_root().get_node("Control").getmoney = get_tree().get_root().get_node("Control").getmoney + 50
-		$ShopList/MoneyPrinter/Price.text = str(MoneyPrinterNeeded , "M")
+		$ShopList/MoneyPrinter/Price.text = str(MoneyPrinterNeeded , "$")
+		get_tree().get_root().get_node("Control").moneyPrinter += 1
+		$ShopList/MoneyPrinter/amount.text = str("x", get_tree().get_root().get_node("Control").moneyPrinter)
 		MPS.text = str("MPS: ", getmoney +50)
+		Global.livingExpense += 30
+
+func _on_BuyStick_pressed():
+	if checking >= StickNeeded:
+		get_tree().get_root().get_node("Control").checking -= StickNeeded
+		StickNeeded = round(StickNeeded * 1.4)
+		get_tree().get_root().get_node("Control").money = get_tree().get_root().get_node("Control").money + 1
+		$ShopList/Stick/Price.text = str(StickNeeded , "$")
+		get_tree().get_root().get_node("Control").stick += 1
+		$ShopList/Stick/amount.text = str("x", get_tree().get_root().get_node("Control").stick)
+		MPC.text = str("MPC: ", money +1)
+		Global.livingExpense += 0
+
+
+func _on_BuyPlant_pressed():
+	if checking >= PlantNeeded:
+		get_tree().get_root().get_node("Control").checking -= PlantNeeded
+		PlantNeeded = round(PlantNeeded * 1.4)
+		get_tree().get_root().get_node("Control").getmoney = get_tree().get_root().get_node("Control").getmoney + 2
+		$ShopList/Plant/Price.text = str(PlantNeeded , "$")
+		get_tree().get_root().get_node("Control").plant += 1
+		$ShopList/Plant/amount.text = str("x", get_tree().get_root().get_node("Control").plant)
+		MPS.text = str("MPS: ", getmoney +2)
+		Global.livingExpense += 0

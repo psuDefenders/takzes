@@ -15,6 +15,7 @@ func _ready():
 func budget():
 	$curLiveCost.text = "Current living expense: " + str(Global.livingExpense)
 	visible = true
+	get_tree().get_root().get_node("Control").canClick = false
 	get_parent().stopTimer()
 
 func expenses(value):
@@ -51,9 +52,9 @@ func _on_btn_finish_pressed():
 		transfer_money()
 
 func transfer_money():
-	get_parent().checking = get_parent().score * (spendingPercent*0.01)
-	get_parent().saving = get_parent().score * (savingPercent*0.01)
-	Global.extraliving = (get_parent().score * (expensePercent*0.01)) - Global.livingExpense
+	get_parent().checking = round(get_parent().score * (spendingPercent*0.01))
+	get_parent().saving = round(get_parent().score * (savingPercent*0.01))
+	Global.extraliving = round((get_parent().score * (expensePercent*0.01)) - Global.livingExpense)
 	print(Global.extraliving)
 	get_parent().canClick = true
 	get_parent().score = 0

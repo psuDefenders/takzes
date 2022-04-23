@@ -20,25 +20,25 @@ func _process(_delta):
 	getmoney = get_tree().get_root().get_node("Control").getmoney
 	checking = get_tree().get_root().get_node("Control").checking
 	saving = get_tree().get_root().get_node("Control").saving
-	if checking >= MPC1Needed:
-		$ShopList/MPC1.set("custom_colors/font_color",Color(0,255,0))
-	else:
-		$ShopList/MPC1.set("custom_colors/font_color",Color(255,0,0))
-	if checking >= MPS1Needed:
-		$ShopList/MPS1.set("custom_colors/font_color",Color(0,255,0))
-	else:
-		$ShopList/MPS1.set("custom_colors/font_color",Color(255,0,0))
-	if checking >= MoneyPrinterNeeded:
-		$ShopList/MoneyPrinter/Name.set("custom_colors/font_color",Color(0,255,0))
-	else:
-		$ShopList/MoneyPrinter/Name.set("custom_colors/font_color",Color(255,0,0))
+#	if checking >= MPC1Needed:
+#		$ScrollContainer/ShopList/MPC1.set("custom_colors/font_color",Color(0,255,0))
+#	else:
+#		$ScrollContainer/ShopList/MPC1.set("custom_colors/font_color",Color(255,0,0))
+#	if checking >= MPS1Needed:
+#		$ScrollContainer/ShopList/MPS1.set("custom_colors/font_color",Color(0,255,0))
+#	else:
+#		$ScrollContainer/ShopList/MPS1.set("custom_colors/font_color",Color(255,0,0))
+#	if checking >= MoneyPrinterNeeded:
+#		$ScrollContainer/ShopList/MoneyPrinter/Name.set("custom_colors/font_color",Color(0,255,0))
+#	else:
+#		$ScrollContainer/ShopList/MoneyPrinter/Name.set("custom_colors/font_color",Color(255,0,0))
 
 func _on_MPC1_pressed():
 	if score >= MPC1Needed:
 		get_tree().get_root().get_node("Control").score -= MPC1Needed
 		MPC1Needed = round(MPC1Needed * 1.4)
 		get_tree().get_root().get_node("Control").money = get_tree().get_root().get_node("Control").money + 1
-		$ShopList/MPC1.text = str("+1 MPC [", MPC1Needed, "]")
+		$ScrollContainer/ShopList/MPC1.text = str("+1 MPC [", MPC1Needed, "]")
 		MPC.text = str("MPC: ", money +1)
 
 func _on_MPS1_pressed():
@@ -46,7 +46,7 @@ func _on_MPS1_pressed():
 		get_tree().get_root().get_node("Control").score -= MPS1Needed
 		MPS1Needed = round(MPS1Needed * 1.4)
 		get_tree().get_root().get_node("Control").getmoney = get_tree().get_root().get_node("Control").getmoney + 1
-		$ShopList/MPS1.text = str("+1 MPS [", MPS1Needed, "]")
+		$ScrollContainer/ShopList/MPS1.text = str("+1 MPS [", MPS1Needed, "]")
 		MPS.text = str("MPS: ", getmoney +1)
 
 func _on_BuyMoneyPrinter_pressed():
@@ -54,9 +54,9 @@ func _on_BuyMoneyPrinter_pressed():
 		get_tree().get_root().get_node("Control").checking -= MoneyPrinterNeeded
 		MoneyPrinterNeeded = round(MoneyPrinterNeeded * 1.4)
 		get_tree().get_root().get_node("Control").getmoney = get_tree().get_root().get_node("Control").getmoney + 50
-		$ShopList/MoneyPrinter/Price.text = str(MoneyPrinterNeeded , "$")
+		$ScrollContainer/ShopList/MoneyPrinter/Price.text = str(MoneyPrinterNeeded , "$")
 		get_tree().get_root().get_node("Control").moneyPrinter += 1
-		$ShopList/MoneyPrinter/amount.text = str("x", get_tree().get_root().get_node("Control").moneyPrinter)
+		$ScrollContainer/ShopList/MoneyPrinter/amount.text = str("x", get_tree().get_root().get_node("Control").moneyPrinter)
 		MPS.text = str("MPS: ", getmoney +50)
 		Global.livingExpense += 30
 
@@ -65,9 +65,9 @@ func _on_BuyStick_pressed():
 		get_tree().get_root().get_node("Control").checking -= StickNeeded
 		StickNeeded = round(StickNeeded * 1.4)
 		get_tree().get_root().get_node("Control").money = get_tree().get_root().get_node("Control").money + 1
-		$ShopList/Stick/Price.text = str(StickNeeded , "$")
+		$ScrollContainer/ShopList/Stick/Price.text = str(StickNeeded , "$")
 		get_tree().get_root().get_node("Control").stick += 1
-		$ShopList/Stick/amount.text = str("x", get_tree().get_root().get_node("Control").stick)
+		$ScrollContainer/ShopList/Stick/amount.text = str("x", get_tree().get_root().get_node("Control").stick)
 		MPC.text = str("MPC: ", money +1)
 		Global.livingExpense += 0
 
@@ -77,8 +77,8 @@ func _on_BuyPlant_pressed():
 		get_tree().get_root().get_node("Control").checking -= PlantNeeded
 		PlantNeeded = round(PlantNeeded * 1.4)
 		get_tree().get_root().get_node("Control").getmoney = get_tree().get_root().get_node("Control").getmoney + 2
-		$ShopList/Plant/Price.text = str(PlantNeeded , "$")
+		$ScrollContainer/VBoxContainer/ShopList/Plant/Price.text = str(PlantNeeded , "$")
 		get_tree().get_root().get_node("Control").plant += 1
-		$ShopList/Plant/amount.text = str("x", get_tree().get_root().get_node("Control").plant)
+		$ScrollContainer/ShopList/Plant/amount.text = str("x", get_tree().get_root().get_node("Control").plant)
 		MPS.text = str("MPS: ", getmoney +2)
 		Global.livingExpense += 0

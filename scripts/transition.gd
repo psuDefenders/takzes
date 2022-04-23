@@ -5,6 +5,7 @@ export var fadein = false
 
 
 func _ready():
+	visible = true
 	if fadein == true:
 		$AnimationPlayer.play("fadein")
 	else:

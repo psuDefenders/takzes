@@ -13,6 +13,7 @@ var canClick = true
 var shop_delay = 0
 var shopAccessible = false
 var shop = false
+var on_tutorial = true
 
 var mail = false
 var gotten_mail
@@ -47,6 +48,7 @@ var moneyPrinter = 0
 
 func _ready():
 	$Message.message("Welcome", "Ciao, in this hypotetical reality. Your job is to push a boutton! Start by making 100$.", 0)
+	on_tutorial = true
 
 func _on_Timer_timeout():
 	if canClick == true:
@@ -78,6 +80,7 @@ func _on_MinTimer_timeout():
 
 func _on_DayTimer_timeout():
 	day_count += 1
+	saving = round(saving * 1.1)
 	$Date.text = str("Day ", day_count)
 	$budget.budget()
 
@@ -132,6 +135,8 @@ func _on_Mail_pressed():
 		$TheMail.visible = false
 
 func _on_SkipDay_pressed():
-	day_count += 1
-	$Date.text = str("Day ", day_count)
-	$budget.budget()
+	if on_tutorial == false:
+		day_count += 1
+		saving = round(saving * 1.1)
+		$Date.text = str("Day ", day_count)
+		$budget.budget()

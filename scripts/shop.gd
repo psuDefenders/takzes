@@ -77,7 +77,7 @@ func _on_BuyPlant_pressed():
 		get_tree().get_root().get_node("Control").checking -= PlantNeeded
 		PlantNeeded = round(PlantNeeded * 1.4)
 		get_tree().get_root().get_node("Control").getmoney = get_tree().get_root().get_node("Control").getmoney + 2
-		$ScrollContainer/VBoxContainer/ShopList/Plant/Price.text = str(PlantNeeded , "$")
+		$ScrollContainer/ShopList/Plant/Price.text = str(PlantNeeded , "$")
 		get_tree().get_root().get_node("Control").plant += 1
 		$ScrollContainer/ShopList/Plant/amount.text = str("x", get_tree().get_root().get_node("Control").plant)
 		MPS.text = str("MPS: ", getmoney +2)

@@ -48,14 +48,19 @@ func _on_btn_finish_pressed():
 	else:
 		$warning.visible = false
 		visible = false
+		get_parent().on_tutorial = false
 		get_parent().shopAccessible = true
 		transfer_money()
 
 func transfer_money():
-	get_parent().checking = round(get_parent().score * (spendingPercent*0.01))
-	get_parent().saving = round(get_parent().score * (savingPercent*0.01))
+	get_parent().checking += round(get_parent().score * (spendingPercent*0.01))
+	get_parent().saving += round(get_parent().score * (savingPercent*0.01))
 	Global.extraliving = round((get_parent().score * (expensePercent*0.01)) - Global.livingExpense)
 	print(Global.extraliving)
 	get_parent().canClick = true
 	get_parent().score = 0
 	get_parent().startTimer()
+
+func _on_Transfer_pressed():
+	get_parent().checking = get_parent().checking + get_parent().saving
+	get_parent().saving = 0

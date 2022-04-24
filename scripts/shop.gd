@@ -13,6 +13,7 @@ var MPS1Needed = 20
 var MoneyPrinterNeeded = 50
 var StickNeeded = 10
 var PlantNeeded = 30
+var CdplayerNeeded = 150
 
 func _process(_delta):
 	score = get_tree().get_root().get_node("Control").score
@@ -86,4 +87,12 @@ func _on_BuyPlant_pressed():
 
 
 func _on_BuyCD_pressed():
-	print("cd bought")
+	if checking >= CdplayerNeeded:
+		get_tree().get_root().get_node("Control").checking -= CdplayerNeeded
+		CdplayerNeeded = round(CdplayerNeeded * 1.4)
+		get_tree().get_root().get_node("Control").money = get_tree().get_root().get_node("Control").money + 4
+		$ScrollContainer/ShopList/CD_Player/Price.text = str(CdplayerNeeded , "$")
+		get_tree().get_root().get_node("Control").cdPlayer += 1
+		$ScrollContainer/ShopList/CD_Player/amount.text = str("x", get_tree().get_root().get_node("Control").cdPlayer)
+		MPC.text = str("MPC: ", money +4)
+		Global.livingExpense += 20

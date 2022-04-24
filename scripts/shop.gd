@@ -8,11 +8,15 @@ onready var saving
 
 onready var MPS = get_tree().get_root().get_node("Control/MPS")
 onready var MPC = get_tree().get_root().get_node("Control/MPC")
+
+onready var game = get_tree().get_root().get_node("Control")
 var MPC1Needed = 20
 var MPS1Needed = 20
 var MoneyPrinterNeeded = 50
 var StickNeeded = 10
 var PlantNeeded = 30
+var selling = false
+
 
 func _process(_delta):
 	score = get_tree().get_root().get_node("Control").score
@@ -51,7 +55,7 @@ func _on_MPS1_pressed():
 
 func _on_BuyMoneyPrinter_pressed():
 	if checking >= MoneyPrinterNeeded:
-		get_tree().get_root().get_node("Control").checking -= MoneyPrinterNeeded
+		game.checking -= MoneyPrinterNeeded
 		MoneyPrinterNeeded = round(MoneyPrinterNeeded * 1.4)
 		get_tree().get_root().get_node("Control").getmoney = get_tree().get_root().get_node("Control").getmoney + 50
 		$ScrollContainer/ShopList/MoneyPrinter/Price.text = str(MoneyPrinterNeeded , "$")
@@ -69,11 +73,13 @@ func _on_BuyStick_pressed():
 		get_tree().get_root().get_node("Control").stick += 1
 		$ScrollContainer/ShopList/Stick/amount.text = str("x", get_tree().get_root().get_node("Control").stick)
 		MPC.text = str("MPC: ", money +1)
-		Global.livingExpense += 0
+		Global.livingExpense += 0 
+	if selling and get_tree().get_root().get_node("Control").stick > 0:
+		get_tree().get_root().get_node("Control").stick -= 1
+		Global.livingExpense -= 0 
 
 
 func _on_BuyPlant_pressed():
-	print("plant")
 	if checking >= PlantNeeded:
 		get_tree().get_root().get_node("Control").checking -= PlantNeeded
 		PlantNeeded = round(PlantNeeded * 1.4)

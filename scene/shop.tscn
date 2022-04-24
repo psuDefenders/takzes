@@ -50,15 +50,68 @@ __meta__ = {
 
 [node name="ShopList" type="VBoxContainer" parent="ScrollContainer"]
 margin_right = 648.0
-margin_bottom = 1536.0
+margin_bottom = 1756.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Stick" type="TextureRect" parent="ScrollContainer/ShopList"]
+[node name="Info" type="TextureRect" parent="ScrollContainer/ShopList"]
 margin_right = 648.0
 margin_bottom = 216.0
+texture = ExtResource( 6 )
+
+[node name="Name" type="Label" parent="ScrollContainer/ShopList/Info"]
+margin_left = 165.0
+margin_top = 27.0
+margin_right = 335.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 6 )
+text = "Stick"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Desc" type="Label" parent="ScrollContainer/ShopList/Info"]
+margin_left = 169.0
+margin_top = 124.0
+margin_right = 409.0
+margin_bottom = 155.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 7 )
+text = "Just a stick
+improves button clicks"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Price" type="Label" parent="ScrollContainer/ShopList/Info"]
+margin_left = 415.0
+margin_top = 23.0
+margin_right = 630.0
+margin_bottom = 87.0
+custom_fonts/font = SubResource( 10 )
+text = "10 $"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="amount" type="Label" parent="ScrollContainer/ShopList/Info"]
+margin_left = 570.0
+margin_top = 141.0
+margin_right = 630.0
+margin_bottom = 185.0
+custom_fonts/font = SubResource( 11 )
+text = "x0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stick" type="TextureRect" parent="ScrollContainer/ShopList"]
+margin_top = 220.0
+margin_right = 648.0
+margin_bottom = 436.0
 texture = ExtResource( 6 )
 
 [node name="Name" type="Label" parent="ScrollContainer/ShopList/Stick"]
@@ -119,9 +172,9 @@ __meta__ = {
 }
 
 [node name="Plant" type="TextureRect" parent="ScrollContainer/ShopList"]
-margin_top = 220.0
+margin_top = 440.0
 margin_right = 648.0
-margin_bottom = 436.0
+margin_bottom = 656.0
 texture = ExtResource( 7 )
 
 [node name="Name" type="Label" parent="ScrollContainer/ShopList/Plant"]
@@ -180,9 +233,9 @@ __meta__ = {
 }
 
 [node name="CD Player" type="TextureRect" parent="ScrollContainer/ShopList"]
-margin_top = 440.0
+margin_top = 660.0
 margin_right = 648.0
-margin_bottom = 656.0
+margin_bottom = 876.0
 texture = ExtResource( 3 )
 
 [node name="Name" type="Label" parent="ScrollContainer/ShopList/CD Player"]
@@ -241,9 +294,9 @@ __meta__ = {
 }
 
 [node name="64console" type="TextureRect" parent="ScrollContainer/ShopList"]
-margin_top = 660.0
+margin_top = 880.0
 margin_right = 648.0
-margin_bottom = 876.0
+margin_bottom = 1096.0
 texture = ExtResource( 4 )
 
 [node name="Name" type="Label" parent="ScrollContainer/ShopList/64console"]
@@ -302,9 +355,9 @@ __meta__ = {
 }
 
 [node name="Internet" type="TextureRect" parent="ScrollContainer/ShopList"]
-margin_top = 880.0
+margin_top = 1100.0
 margin_right = 648.0
-margin_bottom = 1096.0
+margin_bottom = 1316.0
 texture = ExtResource( 5 )
 
 [node name="Name" type="Label" parent="ScrollContainer/ShopList/Internet"]
@@ -363,9 +416,9 @@ __meta__ = {
 }
 
 [node name="Cellphone" type="TextureRect" parent="ScrollContainer/ShopList"]
-margin_top = 1100.0
+margin_top = 1320.0
 margin_right = 648.0
-margin_bottom = 1316.0
+margin_bottom = 1536.0
 texture = ExtResource( 9 )
 
 [node name="Name" type="Label" parent="ScrollContainer/ShopList/Cellphone"]
@@ -425,9 +478,9 @@ __meta__ = {
 }
 
 [node name="Dumbells" type="TextureRect" parent="ScrollContainer/ShopList"]
-margin_top = 1320.0
+margin_top = 1540.0
 margin_right = 648.0
-margin_bottom = 1536.0
+margin_bottom = 1756.0
 texture = ExtResource( 8 )
 
 [node name="Name" type="Label" parent="ScrollContainer/ShopList/Dumbells"]

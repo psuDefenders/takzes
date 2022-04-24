@@ -73,6 +73,7 @@ func _on_BuyStick_pressed():
 
 
 func _on_BuyPlant_pressed():
+	print("plant")
 	if checking >= PlantNeeded:
 		get_tree().get_root().get_node("Control").checking -= PlantNeeded
 		PlantNeeded = round(PlantNeeded * 1.4)
@@ -82,3 +83,7 @@ func _on_BuyPlant_pressed():
 		$ScrollContainer/ShopList/Plant/amount.text = str("x", get_tree().get_root().get_node("Control").plant)
 		MPS.text = str("MPS: ", getmoney +2)
 		Global.livingExpense += 0
+
+
+func _on_BuyCD_pressed():
+	print("cd bought")

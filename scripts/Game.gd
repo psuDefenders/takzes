@@ -99,20 +99,20 @@ func _process(_delta):
 	if shop_delay > 0:
 		shop_delay -= 1
 
-func _on_Click_pressed():
-	$ClickTimer.start()
-	if canClick:
-		if combo < 100:
-			combo += 1
-		if combo > 25:
-			score += round(money * (combo / 25))
-			$ComboEffect.emitting = true
-		if combo <= 25:
-			score += money
-
-func _on_ClickTimer_timeout():
-	combo = 0
-	$ComboEffect.emitting = false # Effects
+#func _on_Click_pressed():
+#	$ClickTimer.start()
+#	if canClick:
+#		if combo < 100:
+#			combo += 1
+#		if combo > 25:
+#			score += round(money * (combo / 25))
+#			$ComboEffect.emitting = true
+#		if combo <= 25:
+#			score += money
+#
+#func _on_ClickTimer_timeout():
+#	combo = 0
+#	$ComboEffect.emitting = false
 
 func _on_Shop_pressed():
 	if shop == false and shop_delay ==0:

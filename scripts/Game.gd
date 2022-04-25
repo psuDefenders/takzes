@@ -25,6 +25,8 @@ var day_count = 1
 export var mpc = 1
 export var mps = 0
 
+var dictAmount = {"Stick":0 , "Plant":0 , "CD":0 , "64":0, "Wifi":0, "Gilberts":0,"Phone":0,"dumbells":0,"Keyboard":0,"fastFood":0,"edison":0,"car":0,"kimberly":0,"employee":0,"robot":0,"boombox":0,"airflower":0,"trapmusic":0,"classicalusic":0,"airFryer":0, "moneyLaunderer":0,"moneyPrinter":0}
+
 var stick = 0
 var plant = 0
 var cdPlayer = 0

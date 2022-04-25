@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/F25_Bank_Printer.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/shop.gd" type="Script" id=2]
@@ -11,6 +11,10 @@
 [ext_resource path="res://assets/cellphone.png" type="Texture" id=9]
 [ext_resource path="res://assets/shopblack.png" type="Texture" id=10]
 [ext_resource path="res://assets/sell.png" type="Texture" id=11]
+
+[sub_resource type="DynamicFont" id=12]
+size = 25
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 42
@@ -77,6 +81,17 @@ __meta__ = {
 show_behind_parent = true
 margin_right = 273.0
 margin_bottom = 87.0
+
+[node name="ModeOn" type="Label" parent="ScrollContainer/ShopList/info/sell"]
+margin_left = 3.0
+margin_top = 93.0
+margin_right = 265.0
+margin_bottom = 137.0
+custom_fonts/font = SubResource( 12 )
+text = "Sell Mode : Off"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Stick" type="TextureRect" parent="ScrollContainer/ShopList"]
 margin_top = 220.0

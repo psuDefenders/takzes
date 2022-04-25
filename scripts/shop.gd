@@ -15,6 +15,8 @@ var StickNeeded = 10
 var PlantNeeded = 30
 var CdplayerNeeded = 150
 
+var SELLMODE = false
+
 func _process(_delta):
 	score = get_tree().get_root().get_node("Control").score
 	money = get_tree().get_root().get_node("Control").money
@@ -33,6 +35,12 @@ func _process(_delta):
 #		$ScrollContainer/ShopList/MoneyPrinter/Name.set("custom_colors/font_color",Color(0,255,0))
 #	else:
 #		$ScrollContainer/ShopList/MoneyPrinter/Name.set("custom_colors/font_color",Color(255,0,0))
+
+func _on_sellmode_pressed():
+	if SELLMODE == false:
+		SELLMODE = true
+	elif SELLMODE == true:
+		SELLMODE = false
 
 func _on_MPC1_pressed():
 	if score >= MPC1Needed:
@@ -96,3 +104,4 @@ func _on_BuyCD_pressed():
 		$ScrollContainer/ShopList/CD_Player/amount.text = str("x", get_tree().get_root().get_node("Control").cdPlayer)
 		MPC.text = str("MPC: ", money +4)
 		Global.livingExpense += 20
+

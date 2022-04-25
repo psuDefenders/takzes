@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/F25_Bank_Printer.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/shop.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/dumbells.png" type="Texture" id=8]
 [ext_resource path="res://assets/cellphone.png" type="Texture" id=9]
 [ext_resource path="res://assets/shopblack.png" type="Texture" id=10]
+[ext_resource path="res://assets/sell.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=6]
 size = 42
@@ -61,6 +62,21 @@ __meta__ = {
 margin_right = 648.0
 margin_bottom = 216.0
 texture = ExtResource( 10 )
+
+[node name="sell" type="TextureRect" parent="ScrollContainer/ShopList/info"]
+margin_left = 374.0
+margin_top = 2.0
+margin_right = 644.0
+margin_bottom = 86.0
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sellmode" type="Button" parent="ScrollContainer/ShopList/info/sell"]
+show_behind_parent = true
+margin_right = 273.0
+margin_bottom = 87.0
 
 [node name="Stick" type="TextureRect" parent="ScrollContainer/ShopList"]
 margin_top = 220.0
@@ -493,6 +509,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="pressed" from="ScrollContainer/ShopList/info/sell/sellmode" to="." method="_on_sellmode_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/Stick/BuyStick" to="." method="_on_Buy_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/Stick/BuyStick" to="." method="_on_BuyStick_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/Plant/BuyPlant" to="." method="_on_BuyPlant_pressed"]

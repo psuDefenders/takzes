@@ -48,6 +48,7 @@ func _on_btn_finish_pressed():
 	else:
 		$warning.visible = false
 		visible = false
+		get_parent().get_node("SkipDay").visible = true
 		get_parent().on_tutorial = false
 		get_parent().shopAccessible = true
 		transfer_money()

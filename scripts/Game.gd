@@ -1,14 +1,13 @@
 extends Control
 
 export var score = 0
-export var money = 1
-export var getmoney = 0
 export var checking = 0
 export var saving = 0
 var combo = 0
 
 var canClick = true
 
+var gamerScore = 0
 
 var shop_delay = 0
 var shopAccessible = false
@@ -22,6 +21,9 @@ var mail_spam
 var mail_count = 0
 
 var day_count = 1
+
+export var mpc = 1
+export var mps = 0
 
 var stick = 0
 var plant = 0
@@ -47,12 +49,17 @@ var moneyLaunderer = 0
 var moneyPrinter = 0
 
 func _ready():
+	update_mp()
 	$Message.message("Welcome", "Ciao, in this hypotetical reality. Your job is to push a boutton! Start by making 100$.", 0)
 	on_tutorial = true
 
+func update_mp():
+	$MPS.text = str("MPS: ", mps)
+	$MPC.text = str("MPC: ", mpc)
+
 func _on_Timer_timeout():
 	if canClick == true:
-		score += getmoney
+		score += mps
 
 func startTimer():
 	$DayTimer.stop()
@@ -99,20 +106,20 @@ func _process(_delta):
 	if shop_delay > 0:
 		shop_delay -= 1
 
-#func _on_Click_pressed():
-#	$ClickTimer.start()
-#	if canClick:
-#		if combo < 100:
-#			combo += 1
-#		if combo > 25:
-#			score += round(money * (combo / 25))
-#			$ComboEffect.emitting = true
-#		if combo <= 25:
-#			score += money
-#
-#func _on_ClickTimer_timeout():
-#	combo = 0
-#	$ComboEffect.emitting = false
+func _on_Click_pressed():
+	$ClickTimer.start()
+	if canClick:
+		if combo < 100:
+			combo += gamerScore
+		if combo > 25:
+			score += round(mpc * (combo / 25))
+			$ComboEffect.emitting = true
+		if combo <= 25:
+			score += mpc
+
+func _on_ClickTimer_timeout():
+	combo = 0
+	$ComboEffect.emitting = false
 
 func _on_Shop_pressed():
 	if shop == false and shop_delay ==0:

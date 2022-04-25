@@ -81,6 +81,9 @@ __meta__ = {
 show_behind_parent = true
 margin_right = 273.0
 margin_bottom = 87.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ModeOn" type="Label" parent="ScrollContainer/ShopList/info/sell"]
 margin_left = 3.0

@@ -20,6 +20,8 @@ var kind_of_mail
 var mail_spam
 var mail_count = 0
 
+var maxCapacity = 10
+
 var day_count = 0
 var time_till_next = 120
 var time_activate = false
@@ -115,6 +117,10 @@ func _process(_delta):
 	if time_till_next <= 0:
 		time_activate = false
 		day_over()
+	if time_till_next < 60 and time_till_next > 10:
+		$Shop/SkipDay.visible = true
+	else:
+		$Shop/SkipDay.visible = false
 	
 
 func _on_Click_pressed():
@@ -153,7 +159,7 @@ func _on_Mail_pressed():
 func tutorial_end():
 	on_tutorial = false
 	$Shop/Date.visible = true
-	$Shop/SkipDay.visible = true
+	#$Shop/SkipDay.visible = true
 	$Shop/timetillday.visible = true
 
 func _on_SkipDay_pressed():

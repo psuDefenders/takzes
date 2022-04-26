@@ -16,7 +16,6 @@ func budget():
 	$curLiveCost.text = "Current living expense: " + str(Global.livingExpense)
 	visible = true
 	get_tree().get_root().get_node("Control").canClick = false
-	get_parent().stopTimer()
 
 func expenses(value):
 	expensePercent = value
@@ -48,9 +47,10 @@ func _on_btn_finish_pressed():
 	else:
 		$warning.visible = false
 		visible = false
-		get_parent().get_node("SkipDay").visible = true
-		get_parent().on_tutorial = false
+		if get_parent().on_tutorial == true:
+			get_parent().tutorial_end()
 		get_parent().shopAccessible = true
+		
 		transfer_money()
 
 func transfer_money():
@@ -60,7 +60,8 @@ func transfer_money():
 	print(Global.extraliving)
 	get_parent().canClick = true
 	get_parent().score = 0
-	get_parent().startTimer()
+	get_parent().time_activate = true
+	get_parent().new_day()
 
 func _on_Transfer_pressed():
 	get_parent().checking = get_parent().checking + get_parent().saving

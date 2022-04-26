@@ -20,10 +20,12 @@ var kind_of_mail
 var mail_spam
 var mail_count = 0
 
-var day_count = 1
+var day_count = 0
+var time_till_next = 120
+var time_activate = false
 
-export var mpc = 1
-export var mps = 0
+export var mpc = 1.0
+export var mps = 0.0
 
 var dictAmount = {"Stick":0 , "Plant":0 , "CD":0 , "64":0, "Wifi":0, "Gilberts":0,"Phone":0,"dumbells":0,"Keyboard":0,"fastFood":0,"edison":0,"car":0,"kimberly":0,"employee":0,"robot":0,"boombox":0,"airflower":0,"trapmusic":0,"classicalusic":0,"airFryer":0, "moneyLaunderer":0,"moneyPrinter":0}
 
@@ -63,11 +65,6 @@ func _on_Timer_timeout():
 	if canClick == true:
 		score += mps
 
-func startTimer():
-	$DayTimer.stop()
-	
-func stopTimer():
-	$DayTimer.start()
 
 func _on_MinTimer_timeout():
 	gotten_mail = randi() % 19 #1/20 chance every minute
@@ -87,11 +84,15 @@ func _on_MinTimer_timeout():
 			mail_spam = randi() % 50
 			mail_count += 1
 
-func _on_DayTimer_timeout():
+
+func new_day():
 	day_count += 1
-	saving = round(saving * 1.1)
-	$Date.text = str("Day ", day_count)
+	saving = saving * 1.1
+	$Shop/Date.text = str("Day ", day_count)
+
+func day_over():
 	$budget.budget()
+	time_activate = false
 
 func _process(_delta):
 	$Score.text = str(score)
@@ -99,6 +100,7 @@ func _process(_delta):
 	$Savings.text = str(saving)
 	
 	$Shop.visible = shopAccessible
+	$Shop/timetillday.text = str("Time till next day: " + str(round(time_till_next)))
 	
 	if score >= 100 and Global.lore == 0:
 		$Message.message("Congrats", "Congratulation on making a hundred! You worked hard on this and it would be a shame to spend it badly. It's time to budget!", 1)
@@ -107,6 +109,13 @@ func _process(_delta):
 	
 	if shop_delay > 0:
 		shop_delay -= 1
+	
+	if time_activate == true and time_till_next > 0:
+		time_till_next -= 1*_delta
+	if time_till_next <= 0:
+		time_activate = false
+		day_over()
+	
 
 func _on_Click_pressed():
 	$ClickTimer.start()
@@ -114,7 +123,7 @@ func _on_Click_pressed():
 		if combo < 100:
 			combo += gamerScore
 		if combo > 25:
-			score += round(mpc * (combo / 25))
+			score += mpc * (combo / 25)
 			$ComboEffect.emitting = true
 		if combo <= 25:
 			score += mpc
@@ -128,12 +137,10 @@ func _on_Shop_pressed():
 		shop = true
 		shop_delay = 20
 		$AnimationShop.play("shop")
-		$AnimationShop.play("TheShop")
 	elif shop == true and shop_delay ==0:
 		shop = false
 		shop_delay = 20
 		$AnimationClose.play("shop")
-		$AnimationClose.play("TheShop")
 
 func _on_Mail_pressed():
 	if mail == false:
@@ -143,9 +150,12 @@ func _on_Mail_pressed():
 		mail = false
 		$TheMail.visible = false
 
+func tutorial_end():
+	on_tutorial = false
+	$Shop/Date.visible = true
+	$Shop/SkipDay.visible = true
+	$Shop/timetillday.visible = true
+
 func _on_SkipDay_pressed():
 	if on_tutorial == false:
-		day_count += 1
-		saving = round(saving * 1.1)
-		$Date.text = str("Day ", day_count)
-		$budget.budget()
+		day_over()

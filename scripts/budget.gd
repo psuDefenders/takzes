@@ -64,6 +64,7 @@ func transfer_money():
 	get_parent().canClick = true
 	get_parent().score = 0
 	get_parent().time_activate = true
+	QoL()
 	get_parent().new_day()
 
 func _on_Transfer_pressed():
@@ -77,3 +78,10 @@ func enough():
 	else:
 		enough = true
 	return enough
+
+func QoL():
+	if expensePercent > 0 and expensePercent < 51:
+		get_parent().QoL = (expensePercent * 1.15)/50
+	elif expensePercent > 50 and expensePercent < 101:
+		get_parent().QoL = 1.15
+		get_parent().QoL += ((expensePercent-50)*0.05)/50

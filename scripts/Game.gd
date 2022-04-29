@@ -26,33 +26,13 @@ var day_count = 0
 var time_till_next = 120
 var time_activate = false
 
+
 export var mpc = 1.0
 export var mps = 0.0
 
 var dictAmount = {"Stick":0 , "Plant":0 , "CD":0 , "64":0, "Wifi":0, "Gilberts":0,"Phone":0,"dumbells":0,"Keyboard":0,"fastFood":0,"edison":0,"car":0,"kimberly":0,"employee":0,"robot":0,"boombox":0,"airflower":0,"trapmusic":0,"classicalusic":0,"airFryer":0, "moneyLaunderer":0,"moneyPrinter":0}
 
-var stick = 0
-var plant = 0
-var cdPlayer = 0
-var system64 = 0
-var fastInternet = 0
-var gilberts = 0
-var cellPhone = 0
-var dumBells = 0
-var mechKeyboard = 0
-var fastFood = 0
-var edison = 0
-var car = 0
-var kimberly = 0
-var employee = 0
-var robot = 0
-var boombox = 0
-var airFlower = 0
-var trapMusic = 0
-var classicalMusic = 0
-var airFryer = 0
-var moneyLaunderer = 0
-var moneyPrinter = 0
+var QoL = 60
 
 func _ready():
 	update_mp()
@@ -88,12 +68,21 @@ func _on_MinTimer_timeout():
 
 
 func new_day():
+	time_till_next = 120
 	day_count += 1
 	saving = saving * 1.1
 	$Shop/Date.text = str("Day ", day_count)
 
 func day_over():
-	$budget.budget()
+	if Global.livingExpense > score:
+		if Global.livingExpense < score + saving:
+			saving -= (Global.livingExpense - score)
+			score = 0
+			new_day()
+		else:
+			$Failure.failure()
+	else:
+		$budget.budget()
 	time_activate = false
 
 func _process(_delta):

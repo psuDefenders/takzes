@@ -21,7 +21,7 @@ func expenses(value):
 	expensePercent = value
 	$liveBudget.text = "Living Budget:         " + str(expensePercent) + "%"
 	savings()
-	if enough_without_savings():#Global.livingExpense > (value*0.01) * get_parent().score:
+	if !enough():#Global.livingExpense > (value*0.01) * get_parent().score:
 		$warning.visible = true
 		$warning.text = "You dont have enough money to live"
 
@@ -44,6 +44,9 @@ func _on_btn_finish_pressed():
 	if savingPercent < 0:
 		$warning.visible = true
 		$warning.text = "Your savings can't be in the negatives"
+	elif !enough():
+		$warning.visible = true
+		$warning.text = "You dont have enough money to live"
 	else:
 		$warning.visible = false
 		visible = false
@@ -67,15 +70,7 @@ func _on_Transfer_pressed():
 	get_parent().checking = get_parent().checking + get_parent().saving
 	get_parent().saving = 0
 
-
-func enough_with_savings():
-	var enough = false
-	if Global.livingExpense > (expensePercent*0.01) * (get_parent().score + get_parent().saving):
-		enough = false
-	else:
-		enough = true
-	return enough
-func enough_without_savings():
+func enough():
 	var enough = false
 	if Global.livingExpense > (expensePercent*0.01) * get_parent().score:
 		enough = false

@@ -53,7 +53,7 @@ func _on_btn_finish_pressed():
 		if get_parent().on_tutorial == true:
 			get_parent().tutorial_end()
 		get_parent().shopAccessible = true
-		
+		get_parent().time_till_next = 120
 		transfer_money()
 
 func transfer_money():

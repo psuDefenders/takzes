@@ -110,10 +110,16 @@ func _process(_delta):
 		$Shop/SkipDay.visible = true
 	else:
 		$Shop/SkipDay.visible = false
-	
 
+func _on_Click_ready():
+	$Click.set_normal_texture(load("res://assets/Button.png"))
+		
+func _on_Click_button_up():
+	pass
+	
 func _on_Click_pressed():
 	$ClickTimer.start()
+	$Click.set_pressed_texture(load("res://assets/Button_Pressed.png"))
 	if canClick:
 		if combo < 100:
 			combo += gamerScore
@@ -137,13 +143,13 @@ func _on_Shop_pressed():
 		shop_delay = 20
 		$AnimationClose.play("shop")
 
-func _on_Mail_pressed():
-	if mail == false:
-		mail = true
-		$TheMail.visible = true 
-	elif mail == true:
-		mail = false
-		$TheMail.visible = false
+#func _on_Mail_pressed():
+#	if mail == false:
+#		mail = true
+#		$TheMail.visible = true 
+#	elif mail == true:
+#		mail = false
+#		$TheMail.visible = false
 
 func tutorial_end():
 	on_tutorial = false
@@ -154,3 +160,8 @@ func tutorial_end():
 func _on_SkipDay_pressed():
 	if on_tutorial == false:
 		day_over()
+
+
+
+func _on_HOUSING_pressed():
+	pass # Replace with function body.

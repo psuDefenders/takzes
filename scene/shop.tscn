@@ -643,8 +643,8 @@ margin_right = 644.0
 margin_bottom = 207.0
 
 [connection signal="pressed" from="ScrollContainer/ShopList/info/sell/sellmode" to="." method="_on_sellmode_pressed"]
-[connection signal="pressed" from="ScrollContainer/ShopList/Stick/BuyStick" to="." method="_on_Buy_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/Stick/BuyStick" to="." method="_on_BuyStick_pressed"]
+[connection signal="pressed" from="ScrollContainer/ShopList/Stick/BuyStick" to="." method="_on_Buy_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/Plant/BuyPlant" to="." method="_on_BuyPlant_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/CD/BuyCD" to="." method="_on_BuyCD_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/64/Buy64" to="." method="_on_Buy64_pressed"]

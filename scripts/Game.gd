@@ -143,13 +143,13 @@ func _on_Shop_pressed():
 		shop_delay = 20
 		$AnimationClose.play("shop")
 
-func _on_Mail_pressed():
-	if mail == false:
-		mail = true
-		$TheMail.visible = true 
-	elif mail == true:
-		mail = false
-		$TheMail.visible = false
+#func _on_Mail_pressed():
+#	if mail == false:
+#		mail = true
+#		$TheMail.visible = true 
+#	elif mail == true:
+#		mail = false
+#		$TheMail.visible = false
 
 func tutorial_end():
 	on_tutorial = false
@@ -161,3 +161,7 @@ func _on_SkipDay_pressed():
 	if on_tutorial == false:
 		day_over()
 
+
+
+func _on_HOUSING_pressed():
+	pass # Replace with function body.

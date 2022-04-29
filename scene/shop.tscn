@@ -650,4 +650,3 @@ margin_bottom = 207.0
 [connection signal="pressed" from="ScrollContainer/ShopList/64/Buy64" to="." method="_on_Buy64_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/Keyboard/buyKeyboard" to="." method="_on_buyKeyboard_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/Burger/buyBurger" to="." method="_on_buyBurger_pressed"]
-[connection signal="pressed" from="ScrollContainer/ShopList/Burger/buyBurger" to="." method="_on_buyKeyboard_pressed"]

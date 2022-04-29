@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/F25_Bank_Printer.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/shop.gd" type="Script" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://assets/shopblack.png" type="Texture" id=10]
 [ext_resource path="res://assets/sell.png" type="Texture" id=11]
 [ext_resource path="res://assets/open-sans/OpenSans-Bold.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://assets/keyboard.png" type="Texture" id=13]
+[ext_resource path="res://assets/impossibleburger.png" type="Texture" id=14]
 
 [sub_resource type="DynamicFont" id=12]
 size = 25
@@ -51,17 +53,14 @@ __meta__ = {
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 margin_right = 685.0
-margin_bottom = 1082.0
+margin_bottom = 2864.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ShopList" type="VBoxContainer" parent="ScrollContainer"]
 margin_right = 648.0
-margin_bottom = 1756.0
+margin_bottom = 2864.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -492,9 +491,6 @@ margin_right = 461.0
 margin_bottom = 78.0
 custom_fonts/font = SubResource( 6 )
 text = "Training"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Desc" type="Label" parent="ScrollContainer/ShopList/dumbells"]
 margin_left = 215.0
@@ -506,9 +502,6 @@ custom_fonts/font = SubResource( 7 )
 text = "Training allows you
 to increase your
 health and strenght"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Price" type="Label" parent="ScrollContainer/ShopList/dumbells"]
 margin_left = 415.0
@@ -537,9 +530,117 @@ __meta__ = {
 show_behind_parent = true
 margin_right = 644.0
 margin_bottom = 207.0
+
+[node name="Keyboard" type="TextureRect" parent="ScrollContainer/ShopList"]
+margin_top = 1760.0
+margin_right = 648.0
+margin_bottom = 1976.0
+texture = ExtResource( 13 )
+
+[node name="Name" type="Label" parent="ScrollContainer/ShopList/Keyboard"]
+margin_left = 155.0
+margin_top = 27.0
+margin_right = 461.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 6 )
+text = "Mechanical
+Keyboard"
+
+[node name="Desc" type="Label" parent="ScrollContainer/ShopList/Keyboard"]
+margin_left = 215.0
+margin_top = 124.0
+margin_right = 595.0
+margin_bottom = 189.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 7 )
+text = "allows you to nuke
+everyone's eardrums"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Price" type="Label" parent="ScrollContainer/ShopList/Keyboard"]
+margin_left = 415.0
+margin_top = 23.0
+margin_right = 630.0
+margin_bottom = 87.0
+custom_fonts/font = SubResource( 10 )
+text = "250 $"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="amount" type="Label" parent="ScrollContainer/ShopList/Keyboard"]
+margin_left = 570.0
+margin_top = 141.0
+margin_right = 630.0
+margin_bottom = 185.0
+custom_fonts/font = SubResource( 11 )
+text = "x0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buyKeyboard" type="Button" parent="ScrollContainer/ShopList/Keyboard"]
+show_behind_parent = true
+margin_right = 644.0
+margin_bottom = 207.0
+
+[node name="Burger" type="TextureRect" parent="ScrollContainer/ShopList"]
+margin_top = 1980.0
+margin_right = 648.0
+margin_bottom = 2196.0
+texture = ExtResource( 14 )
+
+[node name="Name" type="Label" parent="ScrollContainer/ShopList/Burger"]
+margin_left = 155.0
+margin_top = 27.0
+margin_right = 461.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 6 )
+text = "Impossible
+Burger"
+
+[node name="Desc" type="Label" parent="ScrollContainer/ShopList/Burger"]
+margin_left = 215.0
+margin_top = 124.0
+margin_right = 595.0
+margin_bottom = 189.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 7 )
+text = "makes you american"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Price" type="Label" parent="ScrollContainer/ShopList/Burger"]
+margin_left = 415.0
+margin_top = 23.0
+margin_right = 630.0
+margin_bottom = 87.0
+custom_fonts/font = SubResource( 10 )
+text = "66 $"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="amount" type="Label" parent="ScrollContainer/ShopList/Burger"]
+margin_left = 570.0
+margin_top = 141.0
+margin_right = 630.0
+margin_bottom = 185.0
+custom_fonts/font = SubResource( 11 )
+text = "x0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buyBurger" type="Button" parent="ScrollContainer/ShopList/Burger"]
+show_behind_parent = true
+margin_right = 644.0
+margin_bottom = 207.0
 
 [connection signal="pressed" from="ScrollContainer/ShopList/info/sell/sellmode" to="." method="_on_sellmode_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/Stick/BuyStick" to="." method="_on_Buy_pressed"]
@@ -547,3 +648,6 @@ __meta__ = {
 [connection signal="pressed" from="ScrollContainer/ShopList/Plant/BuyPlant" to="." method="_on_BuyPlant_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/CD/BuyCD" to="." method="_on_BuyCD_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/64/Buy64" to="." method="_on_Buy64_pressed"]
+[connection signal="pressed" from="ScrollContainer/ShopList/Keyboard/buyKeyboard" to="." method="_on_buyKeyboard_pressed"]
+[connection signal="pressed" from="ScrollContainer/ShopList/Burger/buyBurger" to="." method="_on_buyBurger_pressed"]
+[connection signal="pressed" from="ScrollContainer/ShopList/Burger/buyBurger" to="." method="_on_buyKeyboard_pressed"]

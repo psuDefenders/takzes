@@ -14,7 +14,7 @@ var MPS1Needed = 20
 var MoneyPrinterNeeded = 50
 
 onready var dictElements = {"Stick":$ScrollContainer/ShopList/Stick/amount , "Plant":30 , "CD":150, "64":0, "Wifi":0, "Gilberts":0,"Phone":0,"dumbells":0,"Keyboard":0,"fastFood":0,"edison":0,"car":0,"kimberly":0,"employee":0,"robot":0,"boombox":0,"airflower":0,"trapmusic":0,"classicalusic":0,"airFryer":0, "moneyLaunderer":0,"moneyPrinter":0}
-var dictNeeded = {"Stick":10 , "Plant":30 , "CD":150, "64":240, "Wifi":0, "Gilberts":0,"Phone":0,"dumbells":0,"Keyboard":0,"fastFood":0,"edison":0,"car":0,"kimberly":0,"employee":0,"robot":0,"boombox":0,"airflower":0,"trapmusic":0,"classicalusic":0,"airFryer":0, "moneyLaunderer":0,"moneyPrinter":0}
+var dictNeeded = {"Stick":10 , "Plant":30 , "CD":150, "64":240, "Wifi":0, "Gilberts":0,"Phone":0,"dumbells":0,"Keyboard":250,"fastFood":0,"edison":0,"car":0,"kimberly":0,"employee":0,"robot":0,"boombox":0,"airflower":0,"trapmusic":0,"classicalusic":0,"airFryer":0, "moneyLaunderer":0,"moneyPrinter":0}
 var StickNeeded = 10
 var PlantNeeded = 30
 var CdplayerNeeded = 150
@@ -83,3 +83,11 @@ func _on_BuyCD_pressed():
 
 func _on_Buy64_pressed():
 	buy_sell("64",-1,0,1)
+
+
+func _on_buyKeyboard_pressed():
+	buy_sell("Keyboard",0.5,0.5,5)
+
+
+func _on_buyBurger_pressed():
+	buy_sell("fastFood",-1,-1,0)

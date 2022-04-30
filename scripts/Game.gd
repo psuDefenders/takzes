@@ -112,15 +112,15 @@ func _process(_delta):
 	else:
 		$Shop/SkipDay.visible = false
 
-#func _on_Click_ready():
-#	$Click.set_normal_texture(load("res://assets/Button.png"))
+func _on_Click_ready():
+	$Click.set_normal_texture(load("res://assets/button.png"))
 		
 func _on_Click_button_up():
 	pass
 	
 func _on_Click_pressed():
 	$ClickTimer.start()
-#	$Click.set_pressed_texture(load("res://assets/Button_Pressed.png"))
+	$Click.set_pressed_texture(load("res://assets/Button_Pressed.png"))
 	if canClick:
 		if combo < 100:
 			combo += gamerScore

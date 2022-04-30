@@ -32,7 +32,7 @@ export var mps = 0.0
 
 var dictAmount = {"Stick":0 , "Plant":0 , "CD":0 , "64":0, "Wifi":0, "Gilberts":0,"Phone":0,"dumbells":0,"Keyboard":0,"fastFood":0,"edison":0,"car":0,"kimberly":0,"employee":0,"robot":0,"boombox":0,"airflower":0,"trapmusic":0,"classicalusic":0,"airFryer":0, "moneyLaunderer":0,"moneyPrinter":0}
 
-var QoL = 60
+var QoL = 1
 
 func _ready():
 	update_mp()
@@ -86,6 +86,7 @@ func day_over():
 	time_activate = false
 
 func _process(_delta):
+	$QoL.text = str("QoL: "+str(QoL))
 	$Score.text = str(score)
 	$Checking.text = str(checking)
 	$Savings.text = str(saving)
@@ -111,15 +112,15 @@ func _process(_delta):
 	else:
 		$Shop/SkipDay.visible = false
 
-func _on_Click_ready():
-	$Click.set_normal_texture(load("res://assets/Button.png"))
+#func _on_Click_ready():
+#	$Click.set_normal_texture(load("res://assets/Button.png"))
 		
 func _on_Click_button_up():
 	pass
 	
 func _on_Click_pressed():
 	$ClickTimer.start()
-	$Click.set_pressed_texture(load("res://assets/Button_Pressed.png"))
+#	$Click.set_pressed_texture(load("res://assets/Button_Pressed.png"))
 	if canClick:
 		if combo < 100:
 			combo += gamerScore
@@ -161,7 +162,10 @@ func _on_SkipDay_pressed():
 	if on_tutorial == false:
 		day_over()
 
-
+func QoL():
+	mpc = mpc + (mpc * QoL)*0.1
+	mps = mps + (mps * QoL)*0.1
+	update_mp()
 
 func _on_HOUSING_pressed():
 	pass # Replace with function body.

@@ -54,14 +54,17 @@ __meta__ = {
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 margin_right = 685.0
-margin_bottom = 2864.0
+margin_bottom = 1089.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ShopList" type="VBoxContainer" parent="ScrollContainer"]
 margin_right = 648.0
-margin_bottom = 2864.0
+margin_bottom = 2416.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false

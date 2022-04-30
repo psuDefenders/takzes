@@ -85,3 +85,4 @@ func QoL():
 	elif expensePercent > 50 and expensePercent < 101:
 		get_parent().QoL = 1.15
 		get_parent().QoL += ((expensePercent-50)*0.05)/50
+	get_parent().QoL()

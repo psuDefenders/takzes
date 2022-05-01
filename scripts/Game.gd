@@ -27,7 +27,7 @@ var day_count = 0
 var time_till_next = 120
 var time_activate = false
 
-var Capacity = $Shop/TheShop.Capacity
+var Capacity = 0
 
 export var mpc = 1.0
 export var mps = 0.0

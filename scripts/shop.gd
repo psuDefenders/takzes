@@ -22,7 +22,6 @@ var CdplayerNeeded = 150
 var Capacity = 0
 var SELLINGMODE = false
 
-
 #func _process(_delta):
 #	score = get_tree().get_root().get_node("Control").score
 #	money = get_tree().get_root().get_node("Control").money
@@ -61,7 +60,7 @@ func buy_sell(item_needed, mpc, mps, liveCost):
 		get_node("ScrollContainer/ShopList/"+ item_needed+"/Price").text = str(dictNeeded[item_needed] , "$")
 		Capacity += 1
 		Global.livingExpense += liveCost
-		$ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/10"
+		$ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+Global.maxCapacity
 		game.QoL()
 	elif SELLINGMODE == true  and game.dictAmount[item_needed] != 0:
 		game.checking += round(dictNeeded[item_needed]*0.1)
@@ -73,12 +72,9 @@ func buy_sell(item_needed, mpc, mps, liveCost):
 		get_node("ScrollContainer/ShopList/"+ item_needed+"/Price").text = str(dictNeeded[item_needed] , "$")
 		Global.livingExpense -= liveCost
 		Capacity -= 1
-		$ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/10"
+		$ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+Global.maxCapacity
 		game.QoL()
 	game.update_mp()
-
-
-
 
 func _on_BuyStick_pressed():
 	buy_sell("Stick",0.1,0,0)		#Item name in dictionary, mpc gains, mps gains, living cost, item in question

@@ -9,6 +9,7 @@ var canClick = true
 
 var gamerScore = 0
 
+var level = 1
 var shop_delay = 0
 var shopAccessible = false
 var shop = false
@@ -26,6 +27,7 @@ var day_count = 0
 var time_till_next = 120
 var time_activate = false
 
+var Capacity = $Shop/TheShop.Capacity
 
 export var mpc = 1.0
 export var mps = 0.0
@@ -168,4 +170,42 @@ func QoL():
 	update_mp()
 
 func _on_HOUSING_pressed():
-	pass # Replace with function body.
+	$housing.visible = true
+
+func upgrading(tiername):
+	level += 1
+	if level == 2:
+		maxCapacity += 10
+		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+maxCapacity
+		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text = "Home: "+tiername
+	elif level == 3:
+		maxCapacity += 20
+		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+maxCapacity
+		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text = "Home: "+tiername
+	elif level == 4:
+		maxCapacity += 20
+		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+maxCapacity
+		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text = "Home: "+tiername
+	elif level == 5:
+		maxCapacity += 30
+		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+maxCapacity
+		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text = "Home: "+tiername
+	elif level == 6:
+		maxCapacity += 30
+		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+maxCapacity
+		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text = "Home: "+tiername
+	elif level == 7:
+		maxCapacity += 40
+		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+maxCapacity
+		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text = "Home: "+tiername
+	elif level == 8:
+		maxCapacity += 40
+		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+maxCapacity
+		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text = "Home: "+tiername
+	elif level == 9:
+		maxCapacity += 50
+		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+maxCapacity
+		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text= "Home: "+tiername
+
+func closehousing():
+	$housing.visible = false

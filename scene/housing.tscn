@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/message.png" type="Texture" id=1]
 [ext_resource path="res://assets/open-sans/OpenSans-ExtraBold.ttf" type="DynamicFontData" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/_scaled/mansion.jpeg" type="Texture" id=10]
 [ext_resource path="res://assets/_scaled/skyscraper.jpeg" type="Texture" id=11]
 [ext_resource path="res://assets/_scaled/tent.jpeg" type="Texture" id=12]
+[ext_resource path="res://assets/_scaled/apartement.jpg" type="Texture" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -51,7 +52,7 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": false,
 "name": "default",
 "speed": 1.0

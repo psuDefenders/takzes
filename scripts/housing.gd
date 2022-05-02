@@ -2,15 +2,15 @@ extends Node2D
 
 var tier = 1
 var dictNeededHousing = {"dumbster":500 , "cardboard_box":2500 , "tent":8800, "van":16000, "apartement":30000, "house":80000, "mansion":280000, "skyscraper":950000}
-
+onready var game = get_tree().get_root().get_node("Control")
 
 func _on_Goback_pressed():
-	get_tree().get_root().get_node("Control").closehousing()
+	game.closehousing()
 
 
 func _on_upgrade_pressed():
 	if tier == 1 && Global.saving >= dictNeededHousing["dumbster"]:
-		Global.saving -= dictNeededHousing["dumbster"]
+		game.saving -= dictNeededHousing["dumbster"]
 		tier += 1
 		get_tree().get_root().get_node("Control").upgrading("dumbster")
 		$Message/NEXTTIER/tier.text = "Cardboard Box"
@@ -18,7 +18,7 @@ func _on_upgrade_pressed():
 		$Message/Capacityupgrade/upgrade.text = "20"
 		#$Message/NextHousing.texture = 
 	elif tier == 2 && Global.saving >= dictNeededHousing["cardboard_box"]:
-		Global.saving -= dictNeededHousing["cardboard_box"]
+		game.saving -= dictNeededHousing["cardboard_box"]
 		tier += 1
 		get_tree().get_root().get_node("Control").upgrading("cardboard box")
 		$Message/NEXTTIER/tier.text = "Tent"
@@ -26,7 +26,7 @@ func _on_upgrade_pressed():
 		$Message/Capacityupgrade/upgrade.text = "20"
 		#$Message/NextHousing.texture = 
 	elif tier == 3 && Global.saving >= dictNeededHousing["tent"]:
-		Global.saving -= dictNeededHousing["tent"]
+		game.saving -= dictNeededHousing["tent"]
 		tier += 1
 		get_tree().get_root().get_node("Control").upgrading("tent")
 		$Message/NEXTTIER/tier.text = "Van"
@@ -34,7 +34,7 @@ func _on_upgrade_pressed():
 		$Message/Capacityupgrade/upgrade.text = "30"
 		#$Message/NextHousing.texture = 
 	elif tier == 4 && Global.saving >= dictNeededHousing["van"]:
-		Global.saving -= dictNeededHousing["van"]
+		game.saving -= dictNeededHousing["van"]
 		tier += 1
 		get_tree().get_root().get_node("Control").upgrading("van")
 		$Message/NEXTTIER/tier.text = "Apartement"
@@ -42,7 +42,7 @@ func _on_upgrade_pressed():
 		$Message/Capacityupgrade/upgrade.text = "30"
 		#$Message/NextHousing.texture = 
 	elif tier == 5 && Global.saving >= dictNeededHousing["apartement"]:
-		Global.saving -= dictNeededHousing["apartement"]
+		game.saving -= dictNeededHousing["apartement"]
 		tier += 1
 		get_tree().get_root().get_node("Control").upgrading("apartement")
 		$Message/NEXTTIER/tier.text = "House"
@@ -50,7 +50,7 @@ func _on_upgrade_pressed():
 		$Message/Capacityupgrade/upgrade.text = "40"
 		#$Message/NextHousing.texture =
 	elif tier == 6 && Global.saving >= dictNeededHousing["house"]:
-		Global.saving -= dictNeededHousing["house"]
+		game.saving -= dictNeededHousing["house"]
 		tier += 1
 		get_tree().get_root().get_node("Control").upgrading("house")
 		$Message/NEXTTIER/tier.text = "Mansion"
@@ -58,7 +58,7 @@ func _on_upgrade_pressed():
 		$Message/Capacityupgrade/upgrade.text = "40"
 		#$Message/NextHousing.texture =
 	elif tier == 7 && Global.saving >= dictNeededHousing["mansion"]:
-		Global.saving -= dictNeededHousing["mansion"]
+		game.saving -= dictNeededHousing["mansion"]
 		tier += 1
 		get_tree().get_root().get_node("Control").upgrading("mansion")
 		$Message/NEXTTIER/tier.text = "Skyscraper"
@@ -66,7 +66,7 @@ func _on_upgrade_pressed():
 		$Message/Capacityupgrade/upgrade.text = "50"
 		#$Message/NextHousing.texture =
 	elif tier == 8 && Global.saving >= dictNeededHousing["skyscraper"]:
-		Global.saving -= dictNeededHousing["skyscraper"]
+		game.saving -= dictNeededHousing["skyscraper"]
 		tier += 1
 		get_tree().get_root().get_node("Control").upgrading("skyscraper")
 		$Message/NEXTTIER/tier.text = "Maximum tier reached"

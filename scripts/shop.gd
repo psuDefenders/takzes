@@ -107,13 +107,13 @@ func _on_BuyPlant_pressed():
 	buy_sell("Plant",1,0,0)			#Item name in dictionary, mpc gains, mps gains, living cost, item in question
 
 func _on_BuyCD_pressed():			#Item name in dictionary, mpc gains, mps gains, living cost, item in question
-	buy_sell("CD",0,0.5,20)
+	buy_sell("CD",0,0.5,30)
 
 func _on_Buy64_pressed():			#Item name in dictionary, mpc gains, mps gains, living cost, item in question
 	buy_sell("64",-1,0,1)
 
 func _on_buyInternet_pressed():		#Item name in dictionary, mpc gains, mps gains, living cost, item in question
-	buy_sell("Wifi",0,7,20)
+	buy_sell("Wifi",0,7,40)
 
 func _on_buyPhone_pressed():		#Item name in dictionary, mpc gains, mps gains, living cost, item in question
 	buy_sell("Phone",5,-5,2)
@@ -125,7 +125,7 @@ func _on_buyBurger_pressed():		#Item name in dictionary, mpc gains, mps gains, l
 	buy_sell("fastFood",-1,-1,0)
 
 func _on_buyTesla_pressed():		#Item name in dictionary, mpc gains, mps gains, living cost, item in question
-	buy_sell("edison",0,25,40)
+	buy_sell("edison",0,35,250)
 
 func _on_buyTraining_pressed():
-	buy_sell("dumbells",2,0,0)
+	buy_sell("dumbells",2,0,0.5)

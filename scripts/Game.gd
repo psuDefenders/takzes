@@ -78,9 +78,11 @@ func new_day():
 	Global.livingExpense = Global.livingExpense * 1.15
 
 func day_over():
+	#Taxes
 	Global.livingExpense -= lastTax
-	Global.livingExpense += score * 0.10
-	lastTax = score * 0.10
+	Global.livingExpense += score * 0.15
+	lastTax = score * 0.15
+	
 	if Global.livingExpense > score:
 		if Global.livingExpense < score + saving:
 			saving -= (Global.livingExpense - score)
@@ -190,32 +192,32 @@ func upgrading(tiername):
 		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+ str(maxCapacity)
 		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text = "Home: "+tiername
 	elif level == 4:
-		Global.livingExpense += 5
+		Global.livingExpense += 50
 		maxCapacity += Global.capacity_tent
 		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+ str(maxCapacity)
 		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text = "Home: "+tiername
 	elif level == 5:
-		Global.livingExpense += 100
+		Global.livingExpense += 1000
 		maxCapacity += Global.capacity_van
 		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+ str(maxCapacity)
 		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text = "Home: "+tiername
 	elif level == 6:
-		Global.livingExpense += 500
+		Global.livingExpense += 5000
 		maxCapacity += Global.capacity_apartement
 		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+ str(maxCapacity)
 		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text = "Home: "+tiername
 	elif level == 7:
-		Global.livingExpense += 1500
+		Global.livingExpense += 15000
 		maxCapacity += Global.capacity_house
 		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+ str(maxCapacity)
 		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text = "Home: "+tiername
 	elif level == 8:
-		Global.livingExpense += 2000
+		Global.livingExpense += 20000
 		maxCapacity += Global.capacity_mansion
 		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+ str(maxCapacity)
 		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text = "Home: "+tiername
 	elif level == 9:
-		Global.livingExpense += 10000
+		Global.livingExpense += 100000
 		maxCapacity += Global.capacity_skyscraper
 		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+ str(maxCapacity)
 		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text= "Home: "+tiername

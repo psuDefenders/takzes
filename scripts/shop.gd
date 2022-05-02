@@ -129,3 +129,7 @@ func _on_buyTesla_pressed():		#Item name in dictionary, mpc gains, mps gains, li
 
 func _on_buyTraining_pressed():
 	buy_sell("dumbells",2,0,0.5)
+
+
+func _on_upgrade_pressed():
+	pass # Replace with function body.

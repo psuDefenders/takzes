@@ -32,6 +32,7 @@ func _physics_process(delta):
 	check_availlable("Keyboard")
 	check_availlable("fastFood")
 	check_availlable("edison")
+	check_availlable("dumbells")
 
 
 #func _process(_delta):

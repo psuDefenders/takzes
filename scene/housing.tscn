@@ -103,7 +103,7 @@ margin_top = -6.60791
 margin_right = 571.277
 margin_bottom = 53.3921
 custom_fonts/font = SubResource( 5 )
-text = "500"
+text = "44"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -137,7 +137,7 @@ margin_top = 4.40526
 margin_right = 859.264
 margin_bottom = 64.4053
 custom_fonts/font = SubResource( 7 )
-text = "+10"
+text = "+5"
 __meta__ = {
 "_edit_use_anchors_": false
 }

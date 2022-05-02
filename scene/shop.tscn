@@ -725,6 +725,7 @@ margin_bottom = 207.0
 [connection signal="pressed" from="ScrollContainer/ShopList/64/Buy64" to="." method="_on_Buy64_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/Wifi/buyInternet" to="." method="_on_buyInternet_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/Phone/buyPhone" to="." method="_on_buyPhone_pressed"]
+[connection signal="pressed" from="ScrollContainer/ShopList/dumbells/buyTraining" to="." method="_on_buyTraining_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/Keyboard/buyKeyboard" to="." method="_on_buyKeyboard_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/fastFood/buyBurger" to="." method="_on_buyBurger_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/edison/buyTesla" to="." method="_on_buyBurger_pressed"]

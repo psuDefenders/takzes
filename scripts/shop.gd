@@ -122,3 +122,6 @@ func _on_buyBurger_pressed():		#Item name in dictionary, mpc gains, mps gains, l
 
 func _on_buyTesla_pressed():		#Item name in dictionary, mpc gains, mps gains, living cost, item in question
 	buy_sell("edison",0,25,40)
+
+func _on_buyTraining_pressed():
+	buy_sell("dumbells",2,0,0)

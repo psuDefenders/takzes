@@ -175,34 +175,34 @@ func _on_HOUSING_pressed():
 func upgrading(tiername):
 	level += 1
 	if level == 2:
-		maxCapacity += 10
-		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+maxCapacity
+		maxCapacity += Global.capacity_dumpter
+		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+ str(maxCapacity)
 		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text = "Home: "+tiername
 	elif level == 3:
-		maxCapacity += 20
-		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+maxCapacity
+		maxCapacity += Global.capacity_cardboard
+		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+ str(maxCapacity)
 		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text = "Home: "+tiername
 	elif level == 4:
-		maxCapacity += 20
-		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+maxCapacity
+		maxCapacity += Global.capacity_tent
+		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+ str(maxCapacity)
 		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text = "Home: "+tiername
 	elif level == 5:
-		maxCapacity += 30
-		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+maxCapacity
+		maxCapacity += Global.capacity_van
+		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+ str(maxCapacity)
 		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text = "Home: "+tiername
 	elif level == 6:
-		maxCapacity += 30
-		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+maxCapacity
+		maxCapacity += Global.capacity_apartement
+		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+ str(maxCapacity)
 		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text = "Home: "+tiername
 	elif level == 7:
-		maxCapacity += 40
-		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+maxCapacity
+		maxCapacity += Global.capacity_house
+		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+ str(maxCapacity)
 		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text = "Home: "+tiername
 	elif level == 8:
-		maxCapacity += 40
-		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+maxCapacity
+		maxCapacity += Global.capacity_mansion
+		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+ str(maxCapacity)
 		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text = "Home: "+tiername
 	elif level == 9:
-		maxCapacity += 50
-		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+maxCapacity
+		maxCapacity += Global.capacity_skyscraper
+		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+ str(maxCapacity)
 		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text= "Home: "+tiername

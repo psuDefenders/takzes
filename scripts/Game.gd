@@ -134,16 +134,15 @@ func _on_Click_pressed():
 	$Click.set_pressed_texture(load("res://assets/Button_Pressed.png"))
 	if canClick:
 		if combo < 100:
-			combo += gamerScore
+			combo += dictAmount["64"]
 		if combo > 25:
 			score += mpc * (combo / 25)
-			$ComboEffect.emitting = true
+			#$ComboEffect.emitting = true
 		if combo <= 25:
 			score += mpc
 
 func _on_ClickTimer_timeout():
 	combo = 0
-	$ComboEffect.emitting = false
 
 func _on_Shop_pressed():
 	if shop == false and shop_delay ==0:

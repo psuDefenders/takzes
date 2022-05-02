@@ -11,6 +11,15 @@ func _ready():
 
 
 func _physics_process(delta):
+	if get_parent().combo <= 1:
+		if speed > 1:
+			speed -= 1
+		if speed <=1:
+			speed = 1
+	elif get_parent().combo > 1 and get_parent().combo < 20:
+		speed = get_parent().combo
+	else:
+		speed =  20
 	if sprite.global_position.x <=3240:
 		sprite.global_position.x += speed
 	if sprite.global_position.y < 1620:

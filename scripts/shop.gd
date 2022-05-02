@@ -60,7 +60,7 @@ func buy_sell(item_needed, mpc, mps, liveCost):
 		get_node("ScrollContainer/ShopList/"+ item_needed+"/Price").text = str(dictNeeded[item_needed] , "$")
 		game.Capacity += 1
 		Global.livingExpense += liveCost
-		$ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(game.Capacity)+ "/"+Global.maxCapacity
+		$ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(game.Capacity)+ "/"+ str(game.maxCapacity)
 		game.QoL()
 	elif SELLINGMODE == true  and game.dictAmount[item_needed] != 0:
 		game.checking += round(dictNeeded[item_needed]*0.1)
@@ -72,7 +72,7 @@ func buy_sell(item_needed, mpc, mps, liveCost):
 		get_node("ScrollContainer/ShopList/"+ item_needed+"/Price").text = str(dictNeeded[item_needed] , "$")
 		Global.livingExpense -= liveCost
 		game.Capacity -= 1
-		$ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(game.Capacity)+ "/"+Global.maxCapacity
+		$ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(game.Capacity)+ "/"+str(game.maxCapacity)
 		game.QoL()
 	game.update_mp()
 

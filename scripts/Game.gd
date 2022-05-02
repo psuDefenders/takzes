@@ -28,6 +28,7 @@ var time_till_next = 60
 var time_activate = false
 
 var Capacity = 0
+var lastTax = 0
 
 export var mpc = 1.0
 export var mps = 0.0
@@ -77,6 +78,9 @@ func new_day():
 	Global.livingExpense = Global.livingExpense * 1.15
 
 func day_over():
+	Global.livingExpense -= lastTax
+	Global.livingExpense += score * 0.10
+	lastTax = score * 0.10
 	if Global.livingExpense > score:
 		if Global.livingExpense < score + saving:
 			saving -= (Global.livingExpense - score)

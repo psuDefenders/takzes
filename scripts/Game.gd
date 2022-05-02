@@ -42,8 +42,8 @@ func _ready():
 	on_tutorial = true
 
 func update_mp():
-	$MPS.text = str("MPS: ", mps)
-	$MPC.text = str("MPC: ", mpc)
+	$MPS.text = str("MPS: ", round_to_dec(mps,2))
+	$MPC.text = str("MPC: ", round_to_dec(mpc,2))
 
 func _on_Timer_timeout():
 	if canClick == true:
@@ -90,9 +90,9 @@ func day_over():
 
 func _process(_delta):
 	$QoL.text = str("QoL: "+str(QoL))
-	$Score.text = str(score)
-	$Checking.text = str(checking)
-	$Savings.text = str(saving)
+	$Score.text = str(round_to_dec(score,2))
+	$Checking.text = str(round_to_dec(checking,2))
+	$Savings.text = str(round_to_dec(saving,2))
 	
 	$Shop.visible = shopAccessible
 	$Shop/timetillday.text = str("Time till next day: " + str(round(time_till_next)))
@@ -207,3 +207,6 @@ func upgrading(tiername):
 		maxCapacity += Global.capacity_skyscraper
 		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+ str(maxCapacity)
 		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text= "Home: "+tiername
+
+func round_to_dec(num, digit):
+	return round(num * pow(10.0, digit)) / pow(10.0, digit)

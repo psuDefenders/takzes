@@ -4,6 +4,14 @@ var tier = 1
 var dictNeededHousing = {"dumbster":44 , "cardboard_box":100, "tent":200, "van":3520, "apartement":20000, "house":800000, "mansion":2800000, "skyscraper":18000000}
 onready var game = get_tree().get_root().get_node("Control")
 
+func _physics_process(delta):
+	$house.frame = tier - 2
+	$house2.frame = tier - 1
+	if tier == 1 or tier > 8:
+		$house.visible = false
+	else:
+		$house.visible = true
+
 func _on_Goback_pressed():
 	visible = false
 

@@ -58,7 +58,7 @@ __meta__ = {
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 margin_right = 685.0
-margin_bottom = 1089.0
+margin_bottom = 2633.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
@@ -68,7 +68,7 @@ __meta__ = {
 
 [node name="ShopList" type="VBoxContainer" parent="ScrollContainer"]
 margin_right = 648.0
-margin_bottom = 2416.0
+margin_bottom = 2633.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -606,13 +606,13 @@ show_behind_parent = true
 margin_right = 644.0
 margin_bottom = 207.0
 
-[node name="Burger" type="TextureRect" parent="ScrollContainer/ShopList"]
+[node name="fastFood" type="TextureRect" parent="ScrollContainer/ShopList"]
 margin_top = 1980.0
 margin_right = 648.0
 margin_bottom = 2196.0
 texture = ExtResource( 14 )
 
-[node name="Name" type="Label" parent="ScrollContainer/ShopList/Burger"]
+[node name="Name" type="Label" parent="ScrollContainer/ShopList/fastFood"]
 margin_left = 155.0
 margin_top = 27.0
 margin_right = 461.0
@@ -621,7 +621,7 @@ custom_fonts/font = SubResource( 6 )
 text = "Impossible
 Burger"
 
-[node name="Desc" type="Label" parent="ScrollContainer/ShopList/Burger"]
+[node name="Desc" type="Label" parent="ScrollContainer/ShopList/fastFood"]
 margin_left = 215.0
 margin_top = 124.0
 margin_right = 595.0
@@ -633,7 +633,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Price" type="Label" parent="ScrollContainer/ShopList/Burger"]
+[node name="Price" type="Label" parent="ScrollContainer/ShopList/fastFood"]
 margin_left = 415.0
 margin_top = 23.0
 margin_right = 630.0
@@ -645,7 +645,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="amount" type="Label" parent="ScrollContainer/ShopList/Burger"]
+[node name="amount" type="Label" parent="ScrollContainer/ShopList/fastFood"]
 margin_left = 570.0
 margin_top = 141.0
 margin_right = 630.0
@@ -656,18 +656,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="buyBurger" type="Button" parent="ScrollContainer/ShopList/Burger"]
+[node name="buyBurger" type="Button" parent="ScrollContainer/ShopList/fastFood"]
 show_behind_parent = true
 margin_right = 644.0
 margin_bottom = 207.0
 
-[node name="Burger2" type="TextureRect" parent="ScrollContainer/ShopList"]
+[node name="edison" type="TextureRect" parent="ScrollContainer/ShopList"]
 margin_top = 2200.0
 margin_right = 648.0
 margin_bottom = 2416.0
 texture = ExtResource( 15 )
 
-[node name="Name" type="Label" parent="ScrollContainer/ShopList/Burger2"]
+[node name="Name" type="Label" parent="ScrollContainer/ShopList/edison"]
 margin_left = 155.0
 margin_top = 27.0
 margin_right = 461.0
@@ -675,7 +675,7 @@ margin_bottom = 78.0
 custom_fonts/font = SubResource( 6 )
 text = "Tesla Coil"
 
-[node name="Desc" type="Label" parent="ScrollContainer/ShopList/Burger2"]
+[node name="Desc" type="Label" parent="ScrollContainer/ShopList/edison"]
 margin_left = 215.0
 margin_top = 124.0
 margin_right = 595.0
@@ -689,7 +689,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Price" type="Label" parent="ScrollContainer/ShopList/Burger2"]
+[node name="Price" type="Label" parent="ScrollContainer/ShopList/edison"]
 margin_left = 415.0
 margin_top = 23.0
 margin_right = 630.0
@@ -701,7 +701,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="amount" type="Label" parent="ScrollContainer/ShopList/Burger2"]
+[node name="amount" type="Label" parent="ScrollContainer/ShopList/edison"]
 margin_left = 570.0
 margin_top = 141.0
 margin_right = 630.0
@@ -712,7 +712,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="buyTesla" type="Button" parent="ScrollContainer/ShopList/Burger2"]
+[node name="buyTesla" type="Button" parent="ScrollContainer/ShopList/edison"]
 show_behind_parent = true
 margin_right = 644.0
 margin_bottom = 207.0
@@ -726,6 +726,6 @@ margin_bottom = 207.0
 [connection signal="pressed" from="ScrollContainer/ShopList/Wifi/buyInternet" to="." method="_on_buyInternet_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/Phone/buyPhone" to="." method="_on_buyPhone_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/Keyboard/buyKeyboard" to="." method="_on_buyKeyboard_pressed"]
-[connection signal="pressed" from="ScrollContainer/ShopList/Burger/buyBurger" to="." method="_on_buyBurger_pressed"]
-[connection signal="pressed" from="ScrollContainer/ShopList/Burger2/buyTesla" to="." method="_on_buyBurger_pressed"]
-[connection signal="pressed" from="ScrollContainer/ShopList/Burger2/buyTesla" to="." method="_on_buyTesla_pressed"]
+[connection signal="pressed" from="ScrollContainer/ShopList/fastFood/buyBurger" to="." method="_on_buyBurger_pressed"]
+[connection signal="pressed" from="ScrollContainer/ShopList/edison/buyTesla" to="." method="_on_buyBurger_pressed"]
+[connection signal="pressed" from="ScrollContainer/ShopList/edison/buyTesla" to="." method="_on_buyTesla_pressed"]

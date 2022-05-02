@@ -24,7 +24,7 @@ var mail_count = 0
 var maxCapacity = 10
 
 var day_count = 0
-var time_till_next = 120
+var time_till_next = 60
 var time_activate = false
 
 var Capacity = 0
@@ -70,7 +70,7 @@ func _on_MinTimer_timeout():
 
 
 func new_day():
-	time_till_next = 120
+	time_till_next = 60
 	day_count += 1
 	saving = saving * 1.1
 	$Shop/Date.text = str("Day ", day_count)
@@ -109,7 +109,7 @@ func _process(_delta):
 	if time_till_next <= 0:
 		time_activate = false
 		day_over()
-	if time_till_next < 60 and time_till_next > 10:
+	if time_till_next < 30 and time_till_next > 10:
 		$Shop/SkipDay.visible = true
 	else:
 		$Shop/SkipDay.visible = false

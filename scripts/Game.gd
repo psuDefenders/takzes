@@ -74,6 +74,7 @@ func new_day():
 	day_count += 1
 	saving = saving * 1.1
 	$Shop/Date.text = str("Day ", day_count)
+	Global.livingExpense = Global.livingExpense * 1.15
 
 func day_over():
 	if Global.livingExpense > score:

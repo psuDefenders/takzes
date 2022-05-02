@@ -45,6 +45,9 @@ func _ready():
 	on_tutorial = true
 
 func update_mp():
+	mpc = 1 + get_mpc("Stick") + get_mpc("Plant") + get_mpc("CD") + get_mpc("64") + get_mpc("Wifi") + get_mpc("Phone") + get_mpc("dumbells") + get_mpc("Keyboard") + get_mpc("fastFood") + get_mpc("edison")
+	mps = 1 + get_mps("Stick") + get_mps("Plant") + get_mps("CD") + get_mps("64") + get_mps("Wifi") + get_mps("Phone") + get_mps("dumbells") + get_mps("Keyboard") + get_mps("fastFood") + get_mps("edison")
+	
 	$MPS.text = str("MPS: ", round_to_dec(mps,2))
 	$MPC.text = str("MPC: ", round_to_dec(mpc,2))
 
@@ -173,9 +176,10 @@ func _on_SkipDay_pressed():
 		day_over()
 
 func QoL():
-	mpc = mpc + (mpc * QoL)*0.1
-	mps = mps + (mps * QoL)*0.1
-	update_mp()
+	pass
+#	mpc = mpc + (mpc * QoL)*0.1
+#	mps = mps + (mps * QoL)*0.1
+#	update_mp()
 
 func _on_HOUSING_pressed():
 	$housing.visible = true
@@ -236,3 +240,11 @@ func _on_mute_pressed():
 		muted = false
 		$mute.icon = load("res://assets/volume_on.png")
 		$AudioStreamPlayer.volume_db = -8
+func get_mps(item_needed):
+	var mps
+	mps = dictAmount[item_needed] * Global.dictMPS[item_needed]
+	return mps
+func get_mpc(item_needed):
+	var mpc
+	mpc = dictAmount[item_needed] * Global.dictMPC[item_needed]
+	return mpc

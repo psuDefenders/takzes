@@ -13,7 +13,8 @@ var MPC1Needed = 20
 var MPS1Needed = 20
 var MoneyPrinterNeeded = 50
 
-onready var dictElements = {"Stick":$ScrollContainer/ShopList/Stick/amount , "Plant":30 , "CD":150, "64":0, "Wifi":0, "Gilberts":0,"Phone":0,"dumbells":0,"Keyboard":0,"fastFood":0,"edison":0,"car":0,"kimberly":0,"employee":0,"robot":0,"boombox":0,"airflower":0,"trapmusic":0,"classicalusic":0,"airFryer":0, "moneyLaunderer":0,"moneyPrinter":0}
+onready var dictElements = {"Stick":$ScrollContainer/ShopList/Stick/amount, "Plant":30 , "CD":150, "64":0, "Wifi":0, "Gilberts":0,"Phone":0,"dumbells":0,"Keyboard":0,"fastFood":0,"edison":0,"car":0,"kimberly":0,"employee":0,"robot":0,"boombox":0,"airflower":0,"trapmusic":0,"classicalusic":0,"airFryer":0, "moneyLaunderer":0,"moneyPrinter":0}
+
 var dictNeeded = {"Stick":1 , "Plant":30 , "CD":150, "64":240, "Wifi":500, "Gilberts":0,"Phone":1000,"dumbells":70,"Keyboard":250,"fastFood":13.50,"edison":500,"car":0,"kimberly":0,"employee":0,"robot":0,"boombox":0,"airflower":0,"trapmusic":0,"classicalusic":0,"airFryer":0, "moneyLaunderer":0,"moneyPrinter":0}
 var StickNeeded = 10
 var PlantNeeded = 30
@@ -77,27 +78,27 @@ func buy_sell(item_needed, mpc, mps, liveCost):
 	if SELLINGMODE == false and game.checking >= dictNeeded[item_needed] and game.Capacity < game.maxCapacity:
 		game.checking -= dictNeeded[item_needed]
 		dictNeeded[item_needed] = round(dictNeeded[item_needed] * 1.4)
-		game.mpc = game.mpc + mpc
-		game.mps = game.mps + mps
+#		game.mpc = game.mpc + mpc
+#		game.mps = game.mps + mps
 		game.dictAmount[item_needed] += 1
 		get_node("ScrollContainer/ShopList/"+ item_needed+"/amount").text = str("x", game.dictAmount[item_needed])
 		get_node("ScrollContainer/ShopList/"+ item_needed+"/Price").text = str(dictNeeded[item_needed] , "$")
 		game.Capacity += 1
 		Global.livingExpense += liveCost
 		$ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(game.Capacity)+ "/"+ str(game.maxCapacity)
-		game.QoL()
+		#game.QoL()
 	elif SELLINGMODE == true  and game.dictAmount[item_needed] != 0:
 		game.checking += round(dictNeeded[item_needed]*0.1)
 		dictNeeded[item_needed]= round(dictNeeded[item_needed] / 1.4)
-		game.mpc = game.mpc - mpc
-		game.mps = game.mps - mps
+#		game.mpc = game.mpc - mpc
+#		game.mps = game.mps - mps
 		game.dictAmount[item_needed] -= 1
 		get_node("ScrollContainer/ShopList/"+ item_needed+"/amount").text = str("x", game.dictAmount[item_needed])
 		get_node("ScrollContainer/ShopList/"+ item_needed+"/Price").text = str(dictNeeded[item_needed] , "$")
 		Global.livingExpense -= liveCost
 		game.Capacity -= 1
 		$ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(game.Capacity)+ "/"+str(game.maxCapacity)
-		game.QoL()
+		#game.QoL()
 	game.update_mp()
 
 func _on_BuyStick_pressed():

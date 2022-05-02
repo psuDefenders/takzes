@@ -172,6 +172,9 @@ func QoL():
 func _on_HOUSING_pressed():
 	$housing.visible = true
 
+func closehousing():
+	$housing.visible = false
+
 func upgrading(tiername):
 	level += 1
 	if level == 2:
@@ -206,6 +209,3 @@ func upgrading(tiername):
 		maxCapacity += 50
 		$Shop/TheShop/ScrollContainer/ShopList/info/capacity.text = "Capacity: " +str(Capacity)+ "/"+maxCapacity
 		$Shop/TheShop/ScrollContainer/ShopList/info/HOME.text= "Home: "+tiername
-
-func closehousing():
-	$housing.visible = false

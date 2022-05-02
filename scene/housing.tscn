@@ -82,21 +82,22 @@ __meta__ = {
 }
 
 [node name="howmuch" type="Label" parent="Message"]
-margin_left = -88.0
-margin_top = -316.576
-margin_right = 112.0
-margin_bottom = -260.576
+margin_left = -314.667
+margin_top = -320.652
+margin_right = 345.333
+margin_bottom = -264.652
 rect_scale = Vector2( 0.5, 1 )
 custom_fonts/font = SubResource( 4 )
-text = "The cost: "
+text = "(From savings account) The cost: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="price" type="Label" parent="Message/howmuch"]
-margin_left = 217.333
-margin_right = 393.333
-margin_bottom = 34.0
+margin_left = 661.333
+margin_top = 4.07611
+margin_right = 837.333
+margin_bottom = 38.0761
 custom_fonts/font = SubResource( 5 )
 text = "500"
 __meta__ = {

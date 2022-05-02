@@ -58,7 +58,7 @@ __meta__ = {
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 margin_right = 685.0
-margin_bottom = 1087.0
+margin_bottom = 1078.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
@@ -730,7 +730,6 @@ margin_bottom = 207.0
 
 [connection signal="pressed" from="ScrollContainer/ShopList/info/sell/sellmode" to="." method="_on_sellmode_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/Stick/BuyStick" to="." method="_on_BuyStick_pressed"]
-[connection signal="pressed" from="ScrollContainer/ShopList/Stick/BuyStick" to="." method="_on_Buy_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/Plant/BuyPlant" to="." method="_on_BuyPlant_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/CD/BuyCD" to="." method="_on_BuyCD_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/64/Buy64" to="." method="_on_Buy64_pressed"]
@@ -740,4 +739,3 @@ margin_bottom = 207.0
 [connection signal="pressed" from="ScrollContainer/ShopList/Keyboard/buyKeyboard" to="." method="_on_buyKeyboard_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/fastFood/buyBurger" to="." method="_on_buyBurger_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/edison/buyTesla" to="." method="_on_buyTesla_pressed"]
-[connection signal="pressed" from="ScrollContainer/ShopList/edison/buyTesla" to="." method="_on_buyBurger_pressed"]

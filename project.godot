@@ -15,6 +15,7 @@ config/description="its taxes"
 run/main_scene="res://scene/MainMenu.tscn"
 boot_splash/image="res://assets/splash.png"
 config/icon="res://assets/moai.png"
+config/windows_native_icon="res://assets/moai.ico"
 
 [autoload]
 

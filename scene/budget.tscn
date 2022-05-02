@@ -150,20 +150,14 @@ margin_right = 680.0
 margin_bottom = -84.0
 custom_fonts/font = SubResource( 4 )
 text = "Transfer all savings to spending budget"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="btn_finish" type="Button" parent="."]
-margin_left = 409.0
+margin_left = -51.0
 margin_top = -50.0
 margin_right = 675.0
 margin_bottom = 80.0
 custom_fonts/font = SubResource( 3 )
 text = "Finish Buget"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="pressed" from="Transfer" to="." method="_on_Transfer_pressed"]
 [connection signal="pressed" from="btn_finish" to="." method="_on_btn_finish_pressed"]

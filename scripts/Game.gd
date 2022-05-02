@@ -5,6 +5,8 @@ export var checking = 0
 export var saving = 0
 var combo = 0
 
+var muted = false
+
 var canClick = true
 
 var gamerScore = 0
@@ -224,3 +226,14 @@ func upgrading(tiername):
 
 func round_to_dec(num, digit):
 	return round(num * pow(10.0, digit)) / pow(10.0, digit)
+
+
+func _on_mute_pressed():
+	if !muted:
+		muted = true
+		$mute.icon = load("res://assets/volume_off.png")
+		$AudioStreamPlayer.volume_db = -80
+	else:
+		muted = false
+		$mute.icon = load("res://assets/volume_on.png")
+		$AudioStreamPlayer.volume_db = -8

@@ -32,8 +32,14 @@ var time_activate = false
 var Capacity = 0
 var lastTax = 0
 
-export var mpc = 1.0
-export var mps = 0.0
+var mpc = 1.0
+var mps = 0.0
+
+var qolmpc = 1.0
+var qolmps = 0.0
+
+var mpcBonus = 0
+var mpsBonus = 0
 
 var dictAmount = {"Stick":0 , "Plant":0 , "CD":0 , "64":0, "Wifi":0, "Gilberts":0,"Phone":0,"dumbells":0,"Keyboard":0,"fastFood":0,"edison":0,"car":0,"kimberly":0,"employee":0,"robot":0,"boombox":0,"airflower":0,"trapmusic":0,"classicalusic":0,"airFryer":0, "moneyLaunderer":0,"moneyPrinter":0}
 
@@ -45,15 +51,17 @@ func _ready():
 	on_tutorial = true
 
 func update_mp():
-	mpc = 1 + get_mpc("Stick") + get_mpc("Plant") + get_mpc("CD") + get_mpc("64") + get_mpc("Wifi") + get_mpc("Phone") + get_mpc("dumbells") + get_mpc("Keyboard") + get_mpc("fastFood") + get_mpc("edison")
-	mps = 1 + get_mps("Stick") + get_mps("Plant") + get_mps("CD") + get_mps("64") + get_mps("Wifi") + get_mps("Phone") + get_mps("dumbells") + get_mps("Keyboard") + get_mps("fastFood") + get_mps("edison")
+	mpc = 1 + get_mpc("Stick") + get_mpc("Plant") + get_mpc("CD") + get_mpc("64") + get_mpc("Wifi") + get_mpc("Phone") + get_mpc("dumbells") + get_mpc("Keyboard") + get_mpc("fastFood") + get_mpc("edison") + mpcBonus
+	mps = get_mps("Stick") + get_mps("Plant") + get_mps("CD") + get_mps("64") + get_mps("Wifi") + get_mps("Phone") + get_mps("dumbells") + get_mps("Keyboard") + get_mps("fastFood") + get_mps("edison")
 	
-	$MPS.text = str("MPS: ", round_to_dec(mps,2))
-	$MPC.text = str("MPC: ", round_to_dec(mpc,2))
+	QoL()
+	
+	$MPS.text = str("MPS: ", round_to_dec(qolmps,2))
+	$MPC.text = str("MPC: ", round_to_dec(qolmpc,2))
 
 func _on_Timer_timeout():
 	if canClick == true:
-		score += mps
+		score += qolmps
 
 
 func _on_MinTimer_timeout():
@@ -93,6 +101,8 @@ func day_over():
 			saving -= (Global.livingExpense - score)
 			score = 0
 			new_day()
+			$Message.message("Uh oh!", "Money has been taken from your savings to  sustain yourself.", 1)
+			time_activate = true
 		else:
 			$Failure.failure()
 	else:
@@ -139,10 +149,10 @@ func _on_Click_pressed():
 		if combo < 100:
 			combo += dictAmount["64"]
 		if combo > 25:
-			score += mpc * (combo / 25)
+			score += qolmpc * (combo / 25)
 			#$ComboEffect.emitting = true
 		if combo <= 25:
-			score += mpc
+			score += qolmpc
 
 func _on_ClickTimer_timeout():
 	combo = 0
@@ -176,10 +186,8 @@ func _on_SkipDay_pressed():
 		day_over()
 
 func QoL():
-	pass
-#	mpc = mpc + (mpc * QoL)*0.1
-#	mps = mps + (mps * QoL)*0.1
-#	update_mp()
+	qolmpc = mpc + (mpc * QoL)*0.1
+	qolmps = mps + (mps * QoL)*0.1
 
 func _on_HOUSING_pressed():
 	$housing.visible = true

@@ -58,9 +58,11 @@ func _physics_process(delta):
 func _on_sellmode_pressed():
 	if SELLINGMODE == false:
 		SELLINGMODE = true
+		$ScrollContainer/ShopList/info/sell.texture = load("res://assets/selling.png")
 		$ScrollContainer/ShopList/info/sell/ModeOn.text = "Sell Mode : On"
 	elif SELLINGMODE == true:
 		SELLINGMODE = false
+		$ScrollContainer/ShopList/info/sell.texture= load("res://assets/sell.png")
 		$ScrollContainer/ShopList/info/sell/ModeOn.text = "Sell Mode : Off"
 
 func check_availlable(item_needed):

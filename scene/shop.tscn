@@ -170,7 +170,7 @@ margin_top = 23.0
 margin_right = 630.0
 margin_bottom = 87.0
 custom_fonts/font = SubResource( 10 )
-text = "10 $"
+text = "1 $"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false

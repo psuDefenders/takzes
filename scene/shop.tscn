@@ -128,6 +128,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="living" type="Label" parent="ScrollContainer/ShopList/info"]
+margin_left = 2.0
+margin_top = 124.0
+margin_right = 288.0
+margin_bottom = 181.0
+custom_fonts/font = SubResource( 13 )
+text = "Living Expenses: 40"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Stick" type="TextureRect" parent="ScrollContainer/ShopList"]
 margin_top = 220.0
 margin_right = 648.0
@@ -718,8 +729,8 @@ margin_right = 644.0
 margin_bottom = 207.0
 
 [connection signal="pressed" from="ScrollContainer/ShopList/info/sell/sellmode" to="." method="_on_sellmode_pressed"]
-[connection signal="pressed" from="ScrollContainer/ShopList/Stick/BuyStick" to="." method="_on_Buy_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/Stick/BuyStick" to="." method="_on_BuyStick_pressed"]
+[connection signal="pressed" from="ScrollContainer/ShopList/Stick/BuyStick" to="." method="_on_Buy_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/Plant/BuyPlant" to="." method="_on_BuyPlant_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/CD/BuyCD" to="." method="_on_BuyCD_pressed"]
 [connection signal="pressed" from="ScrollContainer/ShopList/64/Buy64" to="." method="_on_Buy64_pressed"]

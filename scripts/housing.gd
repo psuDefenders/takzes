@@ -5,7 +5,7 @@ var dictNeededHousing = {"dumbster":500 , "cardboard_box":2500 , "tent":8800, "v
 
 
 func _on_Goback_pressed():
-	get_tree().get_root().get_node("Control").closehousing()
+	visible = false
 
 
 func _on_upgrade_pressed():

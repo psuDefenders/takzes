@@ -172,9 +172,6 @@ func QoL():
 func _on_HOUSING_pressed():
 	$housing.visible = true
 
-func closehousing():
-	$housing.visible = false
-
 func upgrading(tiername):
 	level += 1
 	if level == 2:

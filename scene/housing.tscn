@@ -144,11 +144,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Goback" type="Button" parent="Message"]
-margin_left = 424.667
-margin_top = -494.565
-margin_right = 496.667
-margin_bottom = -376.565
+[node name="Goback" type="Button" parent="."]
+margin_left = 1393.0
+margin_top = 9.00015
+margin_right = 1465.0
+margin_bottom = 127.0
 custom_fonts/font = SubResource( 8 )
 text = "X"
 __meta__ = {
@@ -156,4 +156,4 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="Message/UPGRADE/upgrade" to="." method="_on_upgrade_pressed"]
-[connection signal="pressed" from="Message/Goback" to="." method="_on_Goback_pressed"]
+[connection signal="pressed" from="Goback" to="." method="_on_Goback_pressed"]

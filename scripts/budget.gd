@@ -7,13 +7,13 @@ var savingPercent = 0
 
 func _ready():
 	$warning.visible = false
-	$curLiveCost.text = "Current living expense: " + str(Global.livingExpense)
+	$curLiveCost.text = "Current living expense: " + str(get_parent().round_to_dec(Global.livingExpense, 2))
 	$sldrExpenses.connect("value_changed", self, "expenses")
 	$sldrSpending.connect("value_changed", self, "spending")
 
 
 func budget():
-	$curLiveCost.text = "Current living expense: " + str(Global.livingExpense)
+	$curLiveCost.text = "Current living expense: " + str(get_parent().round_to_dec(Global.livingExpense, 2))
 	visible = true
 	get_tree().get_root().get_node("Control").canClick = false
 

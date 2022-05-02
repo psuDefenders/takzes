@@ -33,7 +33,7 @@ func _physics_process(delta):
 	check_availlable("fastFood")
 	check_availlable("edison")
 	check_availlable("dumbells")
-	$ScrollContainer/ShopList/info/living.text = "Living Expenses: " + str(Global.livingExpense)
+	$ScrollContainer/ShopList/info/living.text = "Living Expenses: " + str(game.round_to_dec(Global.livingExpense, 2))
 
 
 #func _process(_delta):

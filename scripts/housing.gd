@@ -9,6 +9,8 @@ func _physics_process(delta):
 	$house2.frame = tier - 1
 	if tier == 1 or tier > 8:
 		$house.visible = false
+		if tier > 8:
+			$Message/UPGRADE.visible = false
 	else:
 		$house.visible = true
 

@@ -35,6 +35,10 @@ var lastTax = 0
 var mpc = 1.0
 var mps = 0.0
 
+var interpolateScore = 0
+var rolling = 0
+var distance = 0
+
 var qolmpc = 1.0
 var qolmps = 0.0
 
@@ -133,7 +137,7 @@ func _process(_delta):
 	if time_till_next <= 0:
 		time_activate = false
 		day_over()
-	if time_till_next < 30 and time_till_next > 10:
+	if time_till_next < 30 and time_till_next > 5:
 		$Shop/SkipDay.visible = true
 	else:
 		$Shop/SkipDay.visible = false
@@ -188,8 +192,10 @@ func _on_SkipDay_pressed():
 		day_over()
 
 func QoL():
+	QoL += (dictAmount["fastFood"] * 0.005)
 	qolmpc = (mpc * QoL)
-	qolmps = (mps * QoL)
+	#qolmps = (mps * QoL)
+	qolmps = mps
 
 func _on_HOUSING_pressed():
 	$housing.visible = true
@@ -258,3 +264,4 @@ func get_mpc(item_needed):
 	var mpc
 	mpc = dictAmount[item_needed] * Global.dictMPC[item_needed]
 	return mpc
+

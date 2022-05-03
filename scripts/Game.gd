@@ -51,7 +51,7 @@ func _ready():
 	on_tutorial = true
 
 func update_mp():
-	mpc = 1 + get_mpc("Stick") + get_mpc("Plant") + get_mpc("CD") + get_mpc("64") + get_mpc("Wifi") + get_mpc("Phone") + get_mpc("dumbells") + get_mpc("Keyboard") + get_mpc("fastFood") + get_mpc("edison") + mpcBonus
+	mpc = 1 + get_mpc("Stick") + get_mpc("Plant") + get_mpc("CD") + get_mpc("64") + get_mpc("Wifi") + get_mpc("Phone") + get_mpc("dumbells") + get_mpc("Keyboard") + get_mpc("fastFood") + get_mpc("edison")
 	mps = get_mps("Stick") + get_mps("Plant") + get_mps("CD") + get_mps("64") + get_mps("Wifi") + get_mps("Phone") + get_mps("dumbells") + get_mps("Keyboard") + get_mps("fastFood") + get_mps("edison")
 	
 	QoL()
@@ -84,6 +84,7 @@ func _on_MinTimer_timeout():
 
 
 func new_day():
+
 	time_till_next = 60
 	day_count += 1
 	saving = saving * 1.1
@@ -92,6 +93,7 @@ func new_day():
 
 func day_over():
 	#Taxes
+	time_activate = false
 	Global.livingExpense -= lastTax
 	Global.livingExpense += score * 0.15
 	lastTax = score * 0.15
@@ -101,13 +103,13 @@ func day_over():
 			saving -= (Global.livingExpense - score)
 			score = 0
 			new_day()
-			$Message.message("Uh oh!", "Money has been taken from your savings to  sustain yourself.", 1)
+			$Message.message("Uh oh!", "Money has been taken from your savings to  sustain yourself.", 0)
 			time_activate = true
 		else:
 			$Failure.failure()
 	else:
 		$budget.budget()
-	time_activate = false
+
 
 func _process(_delta):
 	$QoL.text = str("QoL: "+str(QoL))
@@ -186,8 +188,8 @@ func _on_SkipDay_pressed():
 		day_over()
 
 func QoL():
-	qolmpc = mpc + (mpc * QoL)*0.1
-	qolmps = mps + (mps * QoL)*0.1
+	qolmpc = (mpc * QoL)
+	qolmps = (mps * QoL)
 
 func _on_HOUSING_pressed():
 	$housing.visible = true

@@ -14,6 +14,7 @@ func _ready():
 
 func budget():
 	$curLiveCost.text = "Current living expense: " + str(get_parent().round_to_dec(Global.livingExpense, 2))
+	$tax.text = "Tax: " + str(get_parent().round_to_dec(get_parent().lastTax, 2))
 	visible = true
 	get_tree().get_root().get_node("Control").canClick = false
 

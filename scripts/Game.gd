@@ -51,7 +51,7 @@ var QoL = 1
 
 func _ready():
 	update_mp()
-	$Message.message("Welcome", "Ciao, in this hypotetical reality. Your job is to push a boutton! Start by making 100$.", 0)
+	$Message.message("Welcome", "Welcome to this hypothetical reality. In this place, your job is to push a button. That's your work. Start by making 100$", 0)
 	on_tutorial = true
 
 func update_mp():

@@ -88,7 +88,10 @@ func _on_MinTimer_timeout():
 
 
 func new_day():
-
+	if Global.lore != 1:
+		time_activate = true
+	else:
+		$Message.message("Important Information", "You can now use your spending money in the shop. You invest in items to get more money back from them! Be careful, some item increase the cost of living.", 2)
 	time_till_next = 60
 	day_count += 1
 	saving = saving * 1.1
@@ -98,13 +101,16 @@ func new_day():
 func day_over():
 	#Taxes
 	time_activate = false
-	Global.livingExpense -= lastTax
-	Global.livingExpense += score * 0.15
+	#Global.livingTax-= lastTax
+	Global.livingTax = score * 0.15
 	lastTax = score * 0.15
 	
-	if Global.livingExpense > score:
-		if Global.livingExpense < score + saving:
-			saving -= (Global.livingExpense - score)
+	
+	Global.livingTotal = Global.livingTax + Global.livingExpense
+	
+	if Global.Global.livingTotal > score:
+		if Global.Global.livingTotal< score + saving:
+			saving -= (Global.livingTotal - score)
 			score = 0
 			new_day()
 			$Message.message("Uh oh!", "Money has been taken from your savings to  sustain yourself.", 0)

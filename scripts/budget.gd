@@ -8,13 +8,17 @@ var savingPercent = 0
 func _ready():
 	$warning.visible = false
 	$curLiveCost.text = "Current living expense: " + str(get_parent().round_to_dec(Global.livingExpense, 2))
+	$tax.text = "Tax: " + str(get_parent().round_to_dec(Global.livingTax, 2))
+	$total.text = "Total: " + str(get_parent().round_to_dec(Global.livingTotal, 2))
 	$sldrExpenses.connect("value_changed", self, "expenses")
 	$sldrSpending.connect("value_changed", self, "spending")
 
 
 func budget():
+	$warning.visible = false
 	$curLiveCost.text = "Current living expense: " + str(get_parent().round_to_dec(Global.livingExpense, 2))
-	$tax.text = "Tax: " + str(get_parent().round_to_dec(get_parent().lastTax, 2))
+	$tax.text = "Tax: " + str(get_parent().round_to_dec(Global.livingTax, 2))
+	$total.text = "Total: " + str(get_parent().round_to_dec(Global.livingTotal, 2))
 	visible = true
 	get_tree().get_root().get_node("Control").canClick = false
 
@@ -60,11 +64,8 @@ func _on_btn_finish_pressed():
 func transfer_money():
 	get_parent().checking += round(get_parent().score * (spendingPercent*0.01))
 	get_parent().saving += round(get_parent().score * (savingPercent*0.01))
-	Global.extraliving = round((get_parent().score * (expensePercent*0.01)) - Global.livingExpense)
-	print(Global.extraliving)
 	get_parent().canClick = true
 	get_parent().score = 0
-	get_parent().time_activate = true
 	QoL()
 	get_parent().new_day()
 
@@ -74,7 +75,7 @@ func _on_Transfer_pressed():
 
 func enough():
 	var enough = false
-	if Global.livingExpense > (expensePercent*0.01) * get_parent().score:
+	if Global.livingTotal > (expensePercent*0.01) * get_parent().score:
 		enough = false
 	else:
 		enough = true

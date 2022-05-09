@@ -3,6 +3,8 @@ extends Node
 var lore = 0
 var firstTime = true 
 
+var livingTotal = 0
+var livingTax = 0
 var livingExpense = 40
 var extraliving = 0
 

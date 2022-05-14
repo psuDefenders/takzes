@@ -1,0 +1,43 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+[application]
+
+config/name="takzes"
+config/description="its taxes"
+run/main_scene="res://scene/MainMenu.tscn"
+boot_splash/image="res://assets/splash.png"
+config/icon="res://assets/moai.png"
+config/windows_native_icon="res://assets/moai.ico"
+
+[autoload]
+
+Global="*res://scripts/global.gd"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/fullscreen=true
+window/dpi/allow_hidpi=true
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray(  )
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_clear_color=Color( 0.0784314, 0.0823529, 0.137255, 1 )

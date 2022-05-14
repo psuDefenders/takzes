@@ -1,0 +1,16 @@
+Credits
+
+Programming: Luhe, Purpl
+Sick graphics: Zinc, Purpl, Luhe
+Did nothing: Jeesus
+
+
+
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+Music: Motivational Upbeat Corporate by RinkevichMusic
+https://bit.ly/3qL5YrA
+Video Link: https://youtu.be/U78mgVaM12M
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+Made with Godot 3.4.3

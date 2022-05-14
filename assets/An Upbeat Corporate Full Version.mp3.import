@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/An Upbeat Corporate Full Version.mp3-ed08cf5fb6e394441a2c96440c70e087.mp3str"
+
+[deps]
+
+source_file="res://assets/An Upbeat Corporate Full Version.mp3"
+dest_files=[ "res://.import/An Upbeat Corporate Full Version.mp3-ed08cf5fb6e394441a2c96440c70e087.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

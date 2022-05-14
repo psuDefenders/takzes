@@ -1,0 +1,87 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/message.png" type="Texture" id=1]
+[ext_resource path="res://assets/open-sans/OpenSans-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/Message.gd" type="Script" id=3]
+[ext_resource path="res://assets/open-sans/OpenSans-Bold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/moai.png" type="Texture" id=5]
+[ext_resource path="res://assets/buttonpromt.png" type="Texture" id=6]
+[ext_resource path="res://assets/buttonpromt_selected.png" type="Texture" id=7]
+[ext_resource path="res://assets/buttonpromt_hover.png" type="Texture" id=8]
+[ext_resource path="res://assets/header.png" type="Texture" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 500, 500 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 500, 500 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 500, 500 )
+
+[node name="Message" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Message" type="Sprite" parent="."]
+position = Vector2( 347, 218.5 )
+scale = Vector2( 0.702, 0.431 )
+texture = ExtResource( 1 )
+
+[node name="Header" type="Sprite" parent="."]
+position = Vector2( 347, 32.5 )
+scale = Vector2( 5.34375, 0.382812 )
+texture = ExtResource( 9 )
+
+[node name="Moai" type="Sprite" parent="."]
+position = Vector2( 98, 209 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 5 )
+
+[node name="message" type="Label" parent="."]
+margin_left = 192.0
+margin_top = 139.0
+margin_right = 637.0
+margin_bottom = 328.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Guys I was played fortnite yesterday and it was super scary! When I logged on the background was RED and the music was distorted! And peely had red eyes with hyper realistic blood dripping from them!!!! And there was only ONE GAME MODE called \"DIE!\" so I clicked it and loaded into a match, and the loading screen was a DEAD Jonesy who was covered in BLOOD! And the loading screen tip said \"YOU'RE DIE TODAY!\" I was so scared!!!! "
+autowrap = true
+percent_visible = 0.0
+
+[node name="title" type="Label" parent="."]
+margin_left = 12.0
+margin_top = 6.0
+margin_right = 768.0
+margin_bottom = 55.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "TITLE"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 482.0
+margin_top = 321.0
+margin_right = 644.0
+margin_bottom = 399.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "AGREE"
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
